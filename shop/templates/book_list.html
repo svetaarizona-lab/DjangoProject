@@ -1,0 +1,54 @@
+
+ {% extends "base.html" %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+
+<form method="get" class="mb-3">
+    <input type="text" name="q" placeholder="Search books..." class="form-control">
+</form>
+
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-4 mb-3">
+
+        <div class="card p-3">
+            <h5>{{ book.title }}</h5>
+            <p>{{ book.author }}</p>
+            <p>{{ book.price }} $</p>
+            <p>Stock: {{ book.stock }}</p>
+        </div>
+
+    </div>
+    {% empty %}
+        <p>No books available</p>
+    {% endfor %}
+</div>
+
+<!-- PAGINATION -->
+<nav>
+  <ul class="pagination">
+
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      </li>
+    {% endif %}
+
+    <li class="page-item active">
+      <span class="page-link">
+        {{ page_obj.number }}
+      </span>
+    </li>
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+    {% endif %}
+
+  </ul>
+</nav>
+
+{% endblock %}

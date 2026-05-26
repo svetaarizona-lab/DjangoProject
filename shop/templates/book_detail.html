@@ -1,0 +1,10 @@
+<html lang="en">
+    <h1>Book title </h1>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author.name }}</li>
+        <li> Опис : {{ book.description }}</li>
+        <li> Ціна : {{ book.price }}</li>
+        <li> Наявність : {{ book.stock}}</li>
+    </ul>
+</html>
