@@ -15,23 +15,39 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from shop import views as shop_views
-from django.contrib import admin
-from django.urls import path
-
-from shop import views as shop_views
+from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from shop import views
 from shop.views import BookListView
 from shop.views import BookDetailView
 from shop.views import BookCreateView
 from shop.views import BookUpdateView
 from shop.views import BookDeleteView
+from django.conf import settings
+from django.urls import include, path
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', BookListView.as_view(), name='book_list'),
+
+    path('', include('shop.urls')),
+
     path('book/<int:pk>/', BookDetailView.as_view(), name='book_detail'),
     path('create/', BookCreateView.as_view(), name='book_create'),
     path('update/<int:pk>/', BookUpdateView.as_view(), name='book_update'),
     path('delete/<int:pk>/', BookDeleteView.as_view(), name='book_delete'),
+
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+    path('register/', views.register, name='register'),
+
 ]
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]
