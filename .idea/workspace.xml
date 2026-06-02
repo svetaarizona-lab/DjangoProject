@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcab882c-1629-496f-80dc-2859ffd51a49" name="Changes" comment="home16/1" />
+    <list default="true" id="fcab882c-1629-496f-80dc-2859ffd51a49" name="Changes" comment="home16/3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +148,31 @@
       <option name="project" value="LOCAL" />
       <updated>1780315694911</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="home16/2">
+      <option name="closed" value="true" />
+      <created>1780399670483</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780399670483</updated>
+    </task>
+    <task id="LOCAL-00007" summary="home16/3">
+      <option name="closed" value="true" />
+      <created>1780399887609</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780399887609</updated>
+    </task>
+    <task id="LOCAL-00008" summary="home16/3">
+      <option name="closed" value="true" />
+      <created>1780399940733</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1780399940733</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,7 +180,9 @@
     <MESSAGE value="home10/1" />
     <MESSAGE value="home14/1" />
     <MESSAGE value="home16/1" />
-    <option name="LAST_COMMIT_MESSAGE" value="home16/1" />
+    <MESSAGE value="home16/2" />
+    <MESSAGE value="home16/3" />
+    <option name="LAST_COMMIT_MESSAGE" value="home16/3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
