@@ -1,0 +1,22 @@
+[
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "name": "Fiction",
+    "slug": "fiction"
+  }
+},
+{
+  "model": "shop.book",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "title": "Book 1",
+    "author": "Author 1",
+    "price": "10.99",
+    "description": "Test book",
+    "stock": 5
+  }
+}
+]
