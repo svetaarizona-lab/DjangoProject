@@ -1,54 +1,47 @@
 
- {% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Books{% endblock %}
 
 {% block content %}
 
-<form method="get" class="mb-3">
-    <input type="text" name="q" placeholder="Search books..." class="form-control">
+<h2>Bookstore</h2>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search books">
+    <button type="submit">Search</button>
 </form>
 
-<div class="row">
-    {% for book in books %}
-    <div class="col-md-4 mb-3">
+<hr>
 
-        <div class="card p-3">
-            <h5>{{ book.title }}</h5>
-            <p>{{ book.author }}</p>
-            <p>{{ book.price }} $</p>
-            <p>Stock: {{ book.stock }}</p>
-        </div>
+{% for book in books %}
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+        <h3>{{ book.title }}</h3>
 
+        <p>Author: {{ book.author }}</p>
+        <p>Price: {{ book.price }} $</p>
+        <p>Stock: {{ book.stock }}</p>
+
+        <a href="{% url 'cart_add' book.id %}">
+            Add to cart
+        </a>
     </div>
-    {% empty %}
-        <p>No books available</p>
-    {% endfor %}
-</div>
+{% empty %}
+    <p>No books available</p>
+{% endfor %}
 
-<!-- PAGINATION -->
-<nav>
-  <ul class="pagination">
+<hr>
 
+<div>
     {% if page_obj.has_previous %}
-      <li class="page-item">
-        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-      </li>
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
     {% endif %}
 
-    <li class="page-item active">
-      <span class="page-link">
-        {{ page_obj.number }}
-      </span>
-    </li>
+    <span> Page {{ page_obj.number }} </span>
 
     {% if page_obj.has_next %}
-      <li class="page-item">
-        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
-      </li>
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
     {% endif %}
-
-  </ul>
-</nav>
+</div>
 
 {% endblock %}
