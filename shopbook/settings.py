@@ -1,9 +1,12 @@
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 import stripe
+from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-fallback-key")
 DEBUG = True
@@ -29,6 +32,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -96,8 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "uk"
 
+LANGUAGES = [
+    ("en", "English"),
+    ("uk", "Українська"),
+]
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -109,6 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
+LOCALE_PATHS = [BASE_DIR / 'locale']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -154,7 +163,7 @@ LOGGING = {
             "level": "INFO",
         },
 
-        "shop": {  # твій app
+        "shop": {
             "handlers": ["console", "file"],
             "level": "DEBUG",
             "propagate": False,
@@ -174,7 +183,6 @@ stripe.api_key = STRIPE_SECRET_KEY
 #client = stripe.StripeClient(STRIPE_SECRET_KEY)
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-#EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

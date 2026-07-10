@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
+{% load i18n %}
+
+<html lang="en">
 <head>
-  <title>Checkout canceled</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>{% trans "Checkout canceled" %}</title>
 </head>
+
 <body>
-  <section>
-    <p>Picked the wrong subscription? Shop around then come back to pay!</p>
-  </section>
+
+<section>
+    <p>
+        {% trans "Your payment has been canceled." %}
+    </p>
+
+    <a href="/">
+        {% trans "Return to bookstore" %}
+    </a>
+</section>
+
 </body>
 </html>

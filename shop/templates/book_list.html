@@ -1,15 +1,18 @@
 
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Books{% endblock %}
+{% block title %}{% trans "Books" %}{% endblock %}
 
 {% block content %}
 
-<h2>Bookstore</h2>
+<h2>{% trans "Bookstore" %}</h2>
 
 <form method="get">
-    <input type="text" name="q" placeholder="Search books">
-    <button type="submit">Search</button>
+    <input type="text"
+           name="q"
+           placeholder="{% trans 'Search books' %}">
+    <button type="submit">{% trans "Search" %}</button>
 </form>
 
 <hr>
@@ -18,29 +21,35 @@
     <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
         <h3>{{ book.title }}</h3>
 
-        <p>Author: {{ book.author }}</p>
-        <p>Price: {{ book.price }} $</p>
-        <p>Stock: {{ book.stock }}</p>
+        <p>{% trans "Author" %}: {{ book.author }}</p>
+        <p>{% trans "Price" %}: {{ book.price }} $</p>
+        <p>{% trans "Stock" %}: {{ book.stock }}</p>
 
         <a href="{% url 'cart_add' book.id %}">
-            Add to cart
+            {% trans "Add to cart" %}
         </a>
     </div>
 {% empty %}
-    <p>No books available</p>
+    <p>{% trans "No books available" %}</p>
 {% endfor %}
 
 <hr>
 
 <div>
     {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        <a href="?page={{ page_obj.previous_page_number }}">
+            {% trans "Previous" %}
+        </a>
     {% endif %}
 
-    <span> Page {{ page_obj.number }} </span>
+    <span>
+        {% trans "Page" %} {{ page_obj.number }}
+    </span>
 
     {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a href="?page={{ page_obj.next_page_number }}">
+            {% trans "Next" %}
+        </a>
     {% endif %}
 </div>
 

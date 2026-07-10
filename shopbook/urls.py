@@ -9,9 +9,12 @@ from shop.views import BookDeleteView
 from django.conf import settings
 from django.urls import include, path
 from payments.views import WebhookReceivedView
+from django.conf.urls.i18n import set_language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path("i18n/setlang/", set_language, name="set_language"),
 
     path('', include('shop.urls')),
     path("webhook/", WebhookReceivedView.as_view(), name="webhook"),

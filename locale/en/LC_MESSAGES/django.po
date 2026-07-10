@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-05 13:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: payments/templates/payment/cancel.html:6
+msgid "Checkout canceled"
+msgstr ""
+
+#: payments/templates/payment/cancel.html:13
+msgid "Your payment has been canceled."
+msgstr ""
+
+#: payments/templates/payment/cancel.html:17
+msgid "Return to bookstore"
+msgstr ""
+
+#: payments/templates/payment/success.html:6
+msgid "Payment successful"
+msgstr ""
+
+#: payments/templates/payment/success.html:10
+msgid "Payment successful!"
+msgstr ""
+
+#: payments/templates/payment/success.html:12
+msgid "Thank you for your order."
+msgstr ""
+
+#: payments/templates/payment/success.html:15
+msgid "Continue shopping"
+msgstr ""
+
+#: shop/forms.py:20
+msgid "Username"
+msgstr ""
+
+#: shop/forms.py:21 shop/models.py:77 shop/templates/cart_detail.html:43
+msgid "Email"
+msgstr ""
+
+#: shop/forms.py:22
+msgid "Password"
+msgstr ""
+
+#: shop/forms.py:23
+msgid "Confirm password"
+msgstr ""
+
+#: shop/models.py:16
+msgid "Name"
+msgstr ""
+
+#: shop/models.py:17
+msgid "Slug"
+msgstr ""
+
+#: shop/models.py:32
+msgid "Title"
+msgstr ""
+
+#: shop/models.py:33 shop/templates/book_list.html:24
+msgid "Author"
+msgstr ""
+
+#: shop/models.py:34 shop/templates/book_detail.html:16
+msgid "Description"
+msgstr ""
+
+#: shop/models.py:36 shop/models.py:127 shop/templates/book_detail.html:17
+#: shop/templates/book_list.html:25 shop/templates/cart_detail.html:6
+msgid "Price"
+msgstr ""
+
+#: shop/models.py:40 shop/templates/book_detail.html:18
+#: shop/templates/book_list.html:26
+msgid "Stock"
+msgstr ""
+
+#: shop/models.py:43
+msgid "Category"
+msgstr ""
+
+#: shop/models.py:75
+msgid "First name"
+msgstr ""
+
+#: shop/models.py:76
+msgid "Last name"
+msgstr ""
+
+#: shop/models.py:78
+msgid "Created"
+msgstr ""
+
+#: shop/models.py:79
+msgid "Updated"
+msgstr ""
+
+#: shop/models.py:80
+msgid "Paid"
+msgstr ""
+
+#: shop/models.py:113
+msgid "Order"
+msgstr ""
+
+#: shop/models.py:120 shop/templates/cart_detail.html:5
+msgid "Book"
+msgstr ""
+
+#: shop/models.py:133 shop/templates/cart_detail.html:7
+msgid "Quantity"
+msgstr ""
+
+#: shop/templates/base.html:6 shop/templates/base.html:19
+msgid "Book Store"
+msgstr ""
+
+#: shop/templates/base.html:27 shop/templates/book_list.html:5
+msgid "Books"
+msgstr ""
+
+#: shop/templates/book_detail.html:6
+msgid "Book details"
+msgstr ""
+
+#: shop/templates/book_detail.html:11
+msgid "Book title"
+msgstr ""
+
+#: shop/templates/book_detail.html:15
+msgid "by"
+msgstr ""
+
+#: shop/templates/book_list.html:9
+msgid "Bookstore"
+msgstr ""
+
+#: shop/templates/book_list.html:14
+msgid "Search books"
+msgstr ""
+
+#: shop/templates/book_list.html:15
+msgid "Search"
+msgstr ""
+
+#: shop/templates/book_list.html:29
+msgid "Add to cart"
+msgstr ""
+
+#: shop/templates/book_list.html:33
+msgid "No books available"
+msgstr ""
+
+#: shop/templates/book_list.html:41
+msgid "Previous"
+msgstr ""
+
+#: shop/templates/book_list.html:46
+msgid "Page"
+msgstr ""
+
+#: shop/templates/book_list.html:51
+msgid "Next"
+msgstr ""
+
+#: shop/templates/cart_detail.html:8 shop/templates/cart_detail.html:36
+msgid "Total"
+msgstr ""
+
+#: shop/templates/cart_detail.html:9
+msgid "Actions"
+msgstr ""
+
+#: shop/templates/cart_detail.html:20
+msgid "Remove"
+msgstr ""
+
+#: shop/templates/cart_detail.html:27
+msgid "Cart is empty"
+msgstr ""
+
+#: shop/templates/cart_detail.html:48
+msgid "example@gmail.com"
+msgstr ""
+
+#: shop/templates/cart_detail.html:54
+msgid "Pay with Stripe"
+msgstr ""
+
+#: shop/templates/register.html:7 shop/templates/register.html:16
+msgid "Register"
+msgstr ""

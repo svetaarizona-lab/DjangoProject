@@ -1,15 +1,20 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>{% trans "Register" %}</title>
 </head>
 <body>
 
     <form method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Register</button>
+
+        <button type="submit">
+            {% trans "Register" %}
+        </button>
     </form>
 
 </body>

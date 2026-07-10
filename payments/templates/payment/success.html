@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
+{% load i18n %}
+
+<html lang="en">
 <head>
-    <title>Payment successful</title>
+    <meta charset="UTF-8">
+    <title>{% trans "Payment successful" %}</title>
 </head>
 <body>
 
-    <h2>✅ Payment successful!</h2>
+    <h2>✅ {% trans "Payment successful!" %}</h2>
 
-    <p>Thank you for your order.</p>
+    <p>{% trans "Thank you for your order." %}</p>
 
     <a href="{% url 'book_list' %}">
-        Continue shopping
+        {% trans "Continue shopping" %}
     </a>
 
 </body>

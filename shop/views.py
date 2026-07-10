@@ -3,14 +3,10 @@ import stripe
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
-
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
 import logging
 
 logger = logging.getLogger(__name__)
-
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
@@ -28,25 +24,32 @@ import json
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import transaction
+from asgiref.sync import sync_to_async
+from django.shortcuts import render
+from django.http import Http404
 
 def index(request):
     return render(request,'index.html')
 
 class BookListView(ListView):
     model = Book
-    template_name = 'book_list.html'
-    context_object_name = 'books'
+    template_name = "book_list.html"
+    context_object_name = "books"
     paginate_by = 6
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
+        query = self.request.GET.get("q")
+
+        queryset = Book.objects.order_by("title")
+
         if query:
-            return Book.objects.filter(title__icontains=query)
-        return Book.objects.all()
+            queryset = queryset.filter(title__icontains=query)
+
+        return queryset
 
 class BookDetailView(DetailView):
     model = Book
-    template_name = 'book_detail.html'
+    template_name = "book_detail.html"
 
 class BookCreateView(CreateView):
     model = Book
@@ -178,9 +181,9 @@ def payment_success(request):
         with transaction.atomic():
 
             order = Order.objects.create(
-                first_name=customer.name if customer and customer.name else "Guest",
+                first_name=customer.get("name") if customer and customer.get("name") else "Guest",
                 last_name="",
-                email=customer.email if customer and customer.email else "guest@example.com",
+                email=customer.get("email") if customer else "",
                 paid=True,
             )
 
@@ -246,3 +249,36 @@ def stripe_webhook(request):
             print("ORDER CREATED:", order.id)
 
     return HttpResponse(status=200)
+async def async_book(request, pk):
+    try:
+        book = await Book.objects.aget(pk=pk)
+    except Book.DoesNotExist:
+        raise Http404("Book not found")
+
+    return render(
+        request,
+        "book_detail.html",
+        {
+            "book": book,
+        },
+    )
+
+
+async def async_order(request, pk):
+    try:
+        order = await Order.objects.aget(pk=pk)
+    except Order.DoesNotExist:
+        raise Http404("Order not found")
+
+    return HttpResponse(f"Order #{order.id}")
+
+
+async def async_create_order(request):
+    order = await Order.objects.acreate(
+        first_name="Test",
+        last_name="User",
+        email="test@example.com",
+        paid=False,
+    )
+
+    return HttpResponse(f"Created order #{order.id}")

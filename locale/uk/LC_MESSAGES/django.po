@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-05 13:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: payments/templates/payment/cancel.html:6
+msgid "Checkout canceled"
+msgstr "Оформлення замовлення скасовано"
+
+#: payments/templates/payment/cancel.html:13
+msgid "Your payment has been canceled."
+msgstr "Ваш платіж було скасовано"
+
+#: payments/templates/payment/cancel.html:17
+msgid "Return to book store"
+msgstr "Повернутися до книжкового магазину"
+
+#: payments/templates/payment/success.html:6
+msgid "Payment successful"
+msgstr "Оплата успішно "
+
+#: payments/templates/payment/success.html:10
+msgid "Payment successful!"
+msgstr "Оплата успішно завершена"
+
+#: payments/templates/payment/success.html:12
+msgid "Thank you for your order."
+msgstr "Дякуємо за замовлення"
+
+#: payments/templates/payment/success.html:15
+msgid "Continue shopping"
+msgstr "Продовжити покупку"
+
+#: shop/forms.py:20
+msgid "Username"
+msgstr "Імя користувача"
+
+#: shop/forms.py:21 shop/models.py:77 shop/templates/cart_detail.html:43
+msgid "Email"
+msgstr "Пошта"
+
+#: shop/forms.py:22
+msgid "Password"
+msgstr "Пароль"
+
+#: shop/forms.py:23
+msgid "Confirm password"
+msgstr "Підтвердіть пароль"
+
+#: shop/models.py:16
+msgid "Name"
+msgstr "Імя"
+
+#: shop/models.py:32
+msgid "Title"
+msgstr "Назва"
+
+#: shop/models.py:33 shop/templates/book_list.html:24
+msgid "Author"
+msgstr "Автор"
+
+#: shop/models.py:34 shop/templates/book_detail.html:16
+msgid "Description"
+msgstr "Опис"
+
+#: shop/models.py:36 shop/models.py:127 shop/templates/book_detail.html:17
+#: shop/templates/book_list.html:25 shop/templates/cart_detail.html:6
+msgid "Price"
+msgstr "Ціна"
+
+#: shop/models.py:40 shop/templates/book_detail.html:18
+#: shop/templates/book_list.html:26
+msgid "Stock"
+msgstr "Наявність"
+
+#: shop/models.py:43
+msgid "Category"
+msgstr "Категорія"
+
+#: shop/models.py:75
+msgid "First name"
+msgstr "Імя"
+
+#: shop/models.py:76
+msgid "Last name"
+msgstr "Прізвище"
+
+#: shop/models.py:78
+msgid "Created"
+msgstr "Створити"
+
+#: shop/models.py:79
+msgid "Updated"
+msgstr "Оновлено"
+
+#: shop/models.py:80
+msgid "Paid"
+msgstr "Оплачено"
+
+#: shop/models.py:113
+msgid "Order"
+msgstr "Замовлення"
+
+#: shop/models.py:120 shop/templates/cart_detail.html:5
+msgid "Book"
+msgstr "Книга"
+
+#: shop/models.py:133 shop/templates/cart_detail.html:7
+msgid "Quantity"
+msgstr "Кількість"
+
+#: shop/templates/base.html:6 shop/templates/base.html:19
+msgid "Book Store"
+msgstr "Книжковий магазин"
+
+#: shop/templates/base.html:27 shop/templates/book_list.html:5
+msgid "Books"
+msgstr "Книжки"
+
+#: shop/templates/book_detail.html:6
+msgid "Book details"
+msgstr "Інформація про книгу"
+
+#: shop/templates/book_detail.html:11
+msgid "Book title"
+msgstr "Назва книги"
+
+#: shop/templates/book_detail.html:15
+msgid "by"
+msgstr "Про"
+
+#: shop/templates/book_list.html:14
+msgid "Search books"
+msgstr "Пошук книги"
+
+#: shop/templates/book_list.html:15
+msgid "Search"
+msgstr "Пошук"
+
+#: shop/templates/book_list.html:29
+msgid "Add to cart"
+msgstr "Додати в кошик"
+
+#: shop/templates/book_list.html:33
+msgid "No books available"
+msgstr "Книги відсутні"
+
+#: shop/templates/book_list.html:41
+msgid "Previous"
+msgstr "Попередня"
+
+#: shop/templates/book_list.html:46
+msgid "Page"
+msgstr "Сторінка"
+
+#: shop/templates/book_list.html:51
+msgid "Next"
+msgstr "Наступна"
+
+#: shop/templates/cart_detail.html:8 shop/templates/cart_detail.html:36
+msgid "Total"
+msgstr "Разом"
+
+#: shop/templates/cart_detail.html:9
+msgid "Actions"
+msgstr "Дії"
+
+#: shop/templates/cart_detail.html:20
+msgid "Remove"
+msgstr "Видалити"
+
+#: shop/templates/cart_detail.html:27
+msgid "Cart is empty"
+msgstr "Кошик порожній"
+
+#: shop/templates/cart_detail.html:48
+msgid "example@gmail.com"
+msgstr "Електронна адреса"
+
+#: shop/templates/cart_detail.html:54
+msgid "Pay with Stripe"
+msgstr "оплата через Stripe"
+
+#: shop/templates/register.html:7 shop/templates/register.html:16
+msgid "Register"
+msgstr "Реєстрація"

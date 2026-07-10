@@ -8906,3 +8906,346 @@ WARNING 2026-07-02 09:28:16,289 basehttp "GET /.well-known/appspecific/com.chrom
 INFO 2026-07-02 09:28:16,295 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
 INFO 2026-07-02 09:43:46,739 autoreload /app/shopbook/settings.py changed, reloading.
 INFO 2026-07-02 09:43:47,475 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:08:54,373 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:08:55,622 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:09:43,155 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:09:43,801 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:09:54,658 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:09:55,182 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:10:08,409 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:10:09,018 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:11:15,902 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:11:16,484 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:11:28,726 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:11:29,412 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:12:03,121 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:12:03,825 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:12:14,698 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:12:15,270 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:12:44,900 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:12:45,548 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:24:59,499 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 12:25:00,187 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:26:20,505 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:26:34,834 middleware ➡️ Request: GET /admin
+INFO 2026-07-05 12:26:34,900 middleware ⬅️ Response: GET /admin Status: 404 Time: 0.0657s
+INFO 2026-07-05 12:26:34,904 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2026-07-05 12:26:34,913 middleware ➡️ Request: GET /admin/
+INFO 2026-07-05 12:26:34,954 middleware ⬅️ Response: GET /admin/ Status: 200 Time: 0.0409s
+INFO 2026-07-05 12:26:34,956 basehttp "GET /admin/ HTTP/1.1" 200 7340
+INFO 2026-07-05 12:26:35,011 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2026-07-05 12:26:35,027 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2026-07-05 12:26:35,031 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2026-07-05 12:26:35,034 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-07-05 12:26:35,045 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-07-05 12:26:35,060 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2026-07-05 12:26:35,061 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2026-07-05 12:26:35,123 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-07-05 12:26:35,125 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-07-05 12:27:57,575 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:27:58,421 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:28:18,033 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:28:18,615 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:28:30,776 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:28:31,453 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:29:38,468 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:29:39,078 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:30:22,264 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:30:23,029 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:30:34,767 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:30:35,359 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:31:30,179 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:31:30,888 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:32:28,573 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:32:29,226 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:32:51,221 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:32:51,771 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:33:14,721 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:33:15,375 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:34:53,735 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:34:54,342 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:35:25,403 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:35:26,001 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:36:12,973 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:36:13,776 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 12:37:00,574 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 12:37:01,100 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:04:35,016 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 13:04:35,577 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:10:28,582 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 13:10:29,171 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:10:39,700 autoreload /app/shop/models.py changed, reloading.
+INFO 2026-07-05 13:10:40,389 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:23:12,866 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:24:52,296 autoreload /app/shop/templates/base.html.py changed, reloading.
+INFO 2026-07-05 13:24:52,904 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:44:02,184 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 13:44:03,114 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:44:45,376 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 13:44:45,931 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:48:39,971 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-05 13:48:40,526 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:49:32,716 middleware ➡️ Request: GET /
+INFO 2026-07-05 13:49:32,755 middleware ⬅️ Response: GET / Status: 200 Time: 0.0392s
+INFO 2026-07-05 13:49:32,757 basehttp "GET / HTTP/1.1" 200 1638
+INFO 2026-07-05 13:49:38,729 middleware ➡️ Request: GET /cart/add/4/
+INFO 2026-07-05 13:49:38,742 middleware ⬅️ Response: GET /cart/add/4/ Status: 302 Time: 0.0133s
+INFO 2026-07-05 13:49:38,758 basehttp "GET /cart/add/4/ HTTP/1.1" 302 0
+INFO 2026-07-05 13:49:38,764 middleware ➡️ Request: GET /cart/
+INFO 2026-07-05 13:49:38,788 middleware ⬅️ Response: GET /cart/ Status: 200 Time: 0.0236s
+INFO 2026-07-05 13:49:38,789 basehttp "GET /cart/ HTTP/1.1" 200 1037
+INFO 2026-07-05 13:52:28,040 autoreload /app/shopbook/urls.py changed, reloading.
+INFO 2026-07-05 13:52:28,663 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:52:38,839 autoreload /app/shopbook/urls.py changed, reloading.
+INFO 2026-07-05 13:52:39,428 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:53:05,181 autoreload /app/shopbook/urls.py changed, reloading.
+INFO 2026-07-05 13:53:05,809 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:56:11,373 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 13:56:22,768 middleware ➡️ Request: GET /cart/
+INFO 2026-07-05 13:56:22,799 middleware ⬅️ Response: GET /cart/ Status: 200 Time: 0.0305s
+INFO 2026-07-05 13:56:22,801 basehttp "GET /cart/ HTTP/1.1" 200 1037
+INFO 2026-07-05 13:56:24,319 middleware ➡️ Request: GET /
+INFO 2026-07-05 13:56:24,348 middleware ⬅️ Response: GET / Status: 200 Time: 0.0296s
+INFO 2026-07-05 13:56:24,350 basehttp "GET / HTTP/1.1" 200 2345
+INFO 2026-07-05 13:56:27,879 middleware ➡️ Request: GET /cart/add/4/
+INFO 2026-07-05 13:56:27,899 middleware ⬅️ Response: GET /cart/add/4/ Status: 302 Time: 0.0193s
+INFO 2026-07-05 13:56:27,904 basehttp "GET /cart/add/4/ HTTP/1.1" 302 0
+INFO 2026-07-05 13:56:27,911 middleware ➡️ Request: GET /cart/
+INFO 2026-07-05 13:56:27,922 middleware ⬅️ Response: GET /cart/ Status: 200 Time: 0.0112s
+INFO 2026-07-05 13:56:27,925 basehttp "GET /cart/ HTTP/1.1" 200 1037
+INFO 2026-07-05 13:56:31,672 middleware ➡️ Request: POST /i18n/setlang/
+INFO 2026-07-05 13:56:31,704 middleware ⬅️ Response: POST /i18n/setlang/ Status: 302 Time: 0.032s
+INFO 2026-07-05 13:56:31,706 basehttp "POST /i18n/setlang/ HTTP/1.1" 302 0
+INFO 2026-07-05 13:56:31,715 middleware ➡️ Request: GET /
+INFO 2026-07-05 13:56:31,728 middleware ⬅️ Response: GET / Status: 200 Time: 0.0126s
+INFO 2026-07-05 13:56:31,729 basehttp "GET / HTTP/1.1" 200 2213
+INFO 2026-07-05 14:03:12,918 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-05 14:03:13,950 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:03:57,774 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-05 14:03:58,323 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:05:46,778 autoreload /app/shop/urls.py changed, reloading.
+INFO 2026-07-05 14:05:47,303 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:06:22,496 autoreload /app/shop/urls.py changed, reloading.
+INFO 2026-07-05 14:06:23,047 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:09:04,932 autoreload /app/shop/urls.py changed, reloading.
+INFO 2026-07-05 14:09:05,553 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:10:24,312 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-05 14:10:24,968 autoreload Watching for file changes with StatReloader
+INFO 2026-07-05 14:10:48,774 autoreload /app/shop/urls.py changed, reloading.
+INFO 2026-07-05 14:10:49,391 autoreload Watching for file changes with StatReloader
+INFO 2026-07-06 17:01:03,509 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-06 17:01:04,880 autoreload Watching for file changes with StatReloader
+INFO 2026-07-06 17:08:30,518 autoreload Watching for file changes with StatReloader
+INFO 2026-07-06 17:09:59,414 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-06 17:10:00,327 autoreload Watching for file changes with StatReloader
+INFO 2026-07-06 17:10:19,736 autoreload Watching for file changes with StatReloader
+INFO 2026-07-06 17:10:22,403 middleware ➡️ Request: GET /
+INFO 2026-07-06 17:10:22,510 middleware ⬅️ Response: GET / Status: 200 Time: 0.1066s
+INFO 2026-07-06 17:10:22,513 basehttp "GET / HTTP/1.1" 200 2213
+INFO 2026-07-06 17:10:24,305 middleware ➡️ Request: GET /cart/add/4/
+INFO 2026-07-06 17:10:24,322 middleware ⬅️ Response: GET /cart/add/4/ Status: 302 Time: 0.0168s
+INFO 2026-07-06 17:10:24,331 basehttp "GET /cart/add/4/ HTTP/1.1" 302 0
+INFO 2026-07-06 17:10:24,337 middleware ➡️ Request: GET /cart/
+INFO 2026-07-06 17:10:24,397 middleware ⬅️ Response: GET /cart/ Status: 200 Time: 0.0596s
+INFO 2026-07-06 17:10:24,399 basehttp "GET /cart/ HTTP/1.1" 200 963
+INFO 2026-07-07 15:43:31,350 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-07 15:43:32,769 autoreload Watching for file changes with StatReloader
+INFO 2026-07-07 15:43:47,387 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-07 15:43:48,019 autoreload Watching for file changes with StatReloader
+INFO 2026-07-07 15:44:12,958 autoreload /app/shop/urls.py changed, reloading.
+INFO 2026-07-07 15:44:13,553 autoreload Watching for file changes with StatReloader
+INFO 2026-07-07 15:44:31,981 middleware ➡️ Request: GET /async/book/1/
+INFO 2026-07-07 15:44:32,047 middleware ⬅️ Response: GET /async/book/1/ Status: 404 Time: 0.0668s
+WARNING 2026-07-07 15:44:32,049 log Not Found: /async/book/1/
+WARNING 2026-07-07 15:44:32,051 basehttp "GET /async/book/1/ HTTP/1.1" 404 4950
+INFO 2026-07-07 15:44:37,338 middleware ➡️ Request: GET /async/book
+INFO 2026-07-07 15:44:37,354 middleware ⬅️ Response: GET /async/book Status: 404 Time: 0.0162s
+WARNING 2026-07-07 15:44:37,356 log Not Found: /async/book
+WARNING 2026-07-07 15:44:37,359 basehttp "GET /async/book HTTP/1.1" 404 6575
+INFO 2026-07-07 15:45:24,407 middleware ➡️ Request: GET /async/book/6
+INFO 2026-07-07 15:45:24,419 middleware ⬅️ Response: GET /async/book/6 Status: 404 Time: 0.0121s
+INFO 2026-07-07 15:45:24,421 basehttp "GET /async/book/6 HTTP/1.1" 301 0
+INFO 2026-07-07 15:45:24,428 middleware ➡️ Request: GET /async/book/6/
+INFO 2026-07-07 15:45:24,446 middleware ⬅️ Response: GET /async/book/6/ Status: 404 Time: 0.018s
+WARNING 2026-07-07 15:45:24,447 log Not Found: /async/book/6/
+WARNING 2026-07-07 15:45:24,448 basehttp "GET /async/book/6/ HTTP/1.1" 404 4950
+INFO 2026-07-07 15:45:29,817 middleware ➡️ Request: GET /async/book/2
+INFO 2026-07-07 15:45:29,830 middleware ⬅️ Response: GET /async/book/2 Status: 404 Time: 0.013s
+INFO 2026-07-07 15:45:29,832 basehttp "GET /async/book/2 HTTP/1.1" 301 0
+INFO 2026-07-07 15:45:29,837 middleware ➡️ Request: GET /async/book/2/
+INFO 2026-07-07 15:45:29,859 middleware ⬅️ Response: GET /async/book/2/ Status: 404 Time: 0.0219s
+WARNING 2026-07-07 15:45:29,861 log Not Found: /async/book/2/
+WARNING 2026-07-07 15:45:29,862 basehttp "GET /async/book/2/ HTTP/1.1" 404 4950
+INFO 2026-07-07 15:45:57,635 middleware ➡️ Request: GET /admin/
+INFO 2026-07-07 15:45:57,683 middleware ⬅️ Response: GET /admin/ Status: 200 Time: 0.0481s
+INFO 2026-07-07 15:45:57,684 basehttp "GET /admin/ HTTP/1.1" 200 6930
+INFO 2026-07-07 15:45:57,711 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,715 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,724 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,726 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,727 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,729 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,729 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,785 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2026-07-07 15:45:57,785 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2026-07-07 15:46:01,606 middleware ➡️ Request: GET /admin/shop/book/
+INFO 2026-07-07 15:46:01,714 middleware ⬅️ Response: GET /admin/shop/book/ Status: 200 Time: 0.108s
+INFO 2026-07-07 15:46:01,716 basehttp "GET /admin/shop/book/ HTTP/1.1" 200 11543
+INFO 2026-07-07 15:46:01,750 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2026-07-07 15:46:01,754 middleware ➡️ Request: GET /admin/jsi18n/
+INFO 2026-07-07 15:46:01,755 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO 2026-07-07 15:46:01,765 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2026-07-07 15:46:01,766 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-07-07 15:46:01,773 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2026-07-07 15:46:01,775 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2026-07-07 15:46:01,776 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2026-07-07 15:46:01,787 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-07-07 15:46:01,798 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO 2026-07-07 15:46:01,804 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-07-07 15:46:01,811 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2026-07-07 15:46:01,816 middleware ⬅️ Response: GET /admin/jsi18n/ Status: 200 Time: 0.0623s
+INFO 2026-07-07 15:46:01,817 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2026-07-07 15:46:01,819 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2026-07-07 15:46:01,874 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-07-07 15:46:01,883 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2026-07-07 15:46:20,395 middleware ➡️ Request: GET /async/book/5/
+INFO 2026-07-07 15:46:20,461 middleware ⬅️ Response: GET /async/book/5/ Status: 200 Time: 0.0661s
+INFO 2026-07-07 15:46:20,475 basehttp "GET /async/book/5/ HTTP/1.1" 200 155
+INFO 2026-07-07 15:46:27,959 middleware ➡️ Request: GET /async/book/5
+INFO 2026-07-07 15:46:27,980 middleware ⬅️ Response: GET /async/book/5 Status: 404 Time: 0.0207s
+INFO 2026-07-07 15:46:27,982 basehttp "GET /async/book/5 HTTP/1.1" 301 0
+INFO 2026-07-07 15:46:27,988 middleware ➡️ Request: GET /async/book/5/
+INFO 2026-07-07 15:46:28,005 middleware ⬅️ Response: GET /async/book/5/ Status: 200 Time: 0.0164s
+INFO 2026-07-07 15:46:28,007 basehttp "GET /async/book/5/ HTTP/1.1" 200 155
+INFO 2026-07-07 15:47:05,170 middleware ➡️ Request: GET /async/order/1/
+INFO 2026-07-07 15:47:05,187 middleware ⬅️ Response: GET /async/order/1/ Status: 200 Time: 0.0168s
+INFO 2026-07-07 15:47:05,189 basehttp "GET /async/order/1/ HTTP/1.1" 200 8
+INFO 2026-07-07 15:47:26,460 middleware ➡️ Request: GET /async/create-order/
+INFO 2026-07-07 15:47:26,483 middleware ⬅️ Response: GET /async/create-order/ Status: 200 Time: 0.0238s
+INFO 2026-07-07 15:47:26,485 basehttp "GET /async/create-order/ HTTP/1.1" 200 16
+INFO 2026-07-10 11:58:06,260 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 12:06:16,284 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 12:16:31,641 autoreload /app/shopbook/settings.py changed, reloading.
+WARNING 2026-07-10 15:27:33,132 log Not Found: /book/999/
+WARNING 2026-07-10 15:28:20,597 log Not Found: /book/999/
+WARNING 2026-07-10 15:31:18,031 log Not Found: /book/999/
+WARNING 2026-07-10 15:33:27,666 log Not Found: /book/999/
+WARNING 2026-07-10 15:36:27,693 log Method Not Allowed (GET): /logout/
+WARNING 2026-07-10 15:42:56,303 log Method Not Allowed (GET): /logout/
+WARNING 2026-07-10 16:01:41,002 log Forbidden (Permission denied): /manage-books/
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING 2026-07-10 18:18:44,646 log Forbidden (Permission denied): /manage-books/
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+INFO 2026-07-10 15:34:14,748 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:43:02,505 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:44:37,020 middleware ➡️ Request: GET /checkout/success/
+ERROR 2026-07-10 15:44:37,034 log Internal Server Error: /checkout/success/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/shop/views.py", line 188, in payment_success
+    first_name=customer.name if customer and customer.name else "Guest",
+                                             ^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'name'
+INFO 2026-07-10 15:44:37,042 middleware ⬅️ Response: GET /checkout/success/ Status: 500 Time: 0.022s
+INFO 2026-07-10 15:46:29,009 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-10 15:46:29,668 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:47:00,988 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-10 15:47:01,611 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:47:24,706 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-10 15:47:25,286 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:49:03,807 middleware ➡️ Request: GET /checkout/success/
+ERROR 2026-07-10 15:49:03,818 log Internal Server Error: /checkout/success/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.NotNullViolation: null value in column "first_name" of relation "shop_order" violates not-null constraint
+DETAIL:  Failing row contains (1, null, , test@test.com, 2026-07-10 15:49:03.810788+00, 2026-07-10 15:49:03.810801+00, t, null).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/shop/views.py", line 183, in payment_success
+    order = Order.objects.create(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.11/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.IntegrityError: null value in column "first_name" of relation "shop_order" violates not-null constraint
+DETAIL:  Failing row contains (1, null, , test@test.com, 2026-07-10 15:49:03.810788+00, 2026-07-10 15:49:03.810801+00, t, null).
+INFO 2026-07-10 15:49:03,831 middleware ⬅️ Response: GET /checkout/success/ Status: 500 Time: 0.0237s
+INFO 2026-07-10 15:50:36,418 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-10 15:50:37,192 autoreload Watching for file changes with StatReloader
+INFO 2026-07-10 15:50:47,331 middleware ➡️ Request: GET /checkout/success/
+INFO 2026-07-10 15:50:47,361 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.0296s
+INFO 2026-07-10 15:51:23,824 middleware ➡️ Request: GET /checkout/success/
+INFO 2026-07-10 15:51:23,837 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.0133s
+INFO 2026-07-10 15:51:56,324 middleware ➡️ Request: GET /checkout/success/
+INFO 2026-07-10 15:51:56,342 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.0188s

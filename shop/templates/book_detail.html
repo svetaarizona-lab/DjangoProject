@@ -1,10 +1,23 @@
+{% load i18n %}
+
 <html lang="en">
-    <h1>Book title </h1>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }} by {{ book.author.name }}</li>
-        <li> Опис : {{ book.description }}</li>
-        <li> Ціна : {{ book.price }}</li>
-        <li> Наявність : {{ book.stock}}</li>
-    </ul>
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Book details" %}</title>
+</head>
+
+<body>
+
+<h1>{% trans "Book title" %}</h1>
+
+<ul>
+    {% for book in books %}
+        <li>{{ book.title }} {% trans "by" %} {{ book.author.name }}</li>
+        <li>{% trans "Description" %}: {{ book.description }}</li>
+        <li>{% trans "Price" %}: {{ book.price }}</li>
+        <li>{% trans "Stock" %}: {{ book.stock }}</li>
+    {% endfor %}
+</ul>
+
+</body>
 </html>
