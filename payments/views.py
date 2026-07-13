@@ -22,12 +22,14 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class CheckoutPage(View):
+    """Render the standalone Stripe checkout page."""
     def get(self, request):
         return render(request, "checkout.html")
 
 
 
 class CheckoutSession(View):
+    """Create a subscription checkout session from a Stripe price key."""
     def post(self, request):
         try:
             lookup_key = request.POST.get("lookup_key")
@@ -63,6 +65,7 @@ class CheckoutSession(View):
 
 
 class CustomerPortalView(View):
+    """Create a Stripe customer-portal session."""
     def post(self, request):
         try:
             session_id = request.POST.get("session_id")
@@ -86,6 +89,7 @@ class CustomerPortalView(View):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class WebhookReceivedView(View):
+    """Validate Stripe events and send a payment confirmation email."""
 
     def post(self, request):
         payload = request.body
@@ -139,8 +143,10 @@ class WebhookReceivedView(View):
         return JsonResponse({"status": "success"})
 
 def payment_success(request):
+    """Render the standalone successful-payment page."""
     return render(request, "payment/success.html")
 
 def payment_cancel(request):
+    """Render the standalone cancelled-payment page."""
     return render(request, "payment/cancel.html")
 

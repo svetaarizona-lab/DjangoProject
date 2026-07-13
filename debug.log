@@ -9249,3 +9249,27 @@ INFO 2026-07-10 15:51:23,824 middleware ➡️ Request: GET /checkout/success/
 INFO 2026-07-10 15:51:23,837 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.0133s
 INFO 2026-07-10 15:51:56,324 middleware ➡️ Request: GET /checkout/success/
 INFO 2026-07-10 15:51:56,342 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.0188s
+WARNING 2026-07-13 11:40:37,936 log Forbidden (Permission denied): /manage-books/
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING 2026-07-13 11:40:37,976 log Not Found: /book/999/
+WARNING 2026-07-13 11:40:49,129 log Forbidden (Permission denied): /manage-books/
+Traceback (most recent call last):
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+  File "C:\Users\User\PycharmProjects\DjangoProject1\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING 2026-07-13 11:40:49,193 log Not Found: /book/999/

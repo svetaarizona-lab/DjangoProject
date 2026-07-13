@@ -78,6 +78,13 @@ class Order(models.Model):
     created = models.DateTimeField(_("Created"), auto_now_add=True)
     updated = models.DateTimeField(_("Updated"), auto_now=True)
     paid = models.BooleanField(_("Paid"), default=False)
+    stripe_session_id = models.CharField(
+        _("Stripe session ID"),
+        max_length=255,
+        unique=True,
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         ordering = ["-created"]

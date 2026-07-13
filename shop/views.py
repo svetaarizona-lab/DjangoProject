@@ -29,6 +29,7 @@ from django.shortcuts import render
 from django.http import Http404
 
 def index(request):
+    """Render the home page."""
     return render(request,'index.html')
 
 class BookListView(ListView):
@@ -38,6 +39,7 @@ class BookListView(ListView):
     paginate_by = 6
 
     def get_queryset(self):
+        """Return books sorted by title and optionally filtered by title."""
         query = self.request.GET.get("q")
 
         queryset = Book.objects.order_by("title")
@@ -48,28 +50,33 @@ class BookListView(ListView):
         return queryset
 
 class BookDetailView(DetailView):
+    """Display details for one book."""
     model = Book
     template_name = "book_detail.html"
 
 class BookCreateView(CreateView):
+    """Create a new book."""
     model = Book
     template_name = 'book_form.html'
     fields = ['category', 'title', 'author', 'price', 'description', 'stock']
     success_url = reverse_lazy('book_list')
 
 class BookUpdateView(UpdateView):
+    """Update an existing book."""
     model = Book
     template_name = 'book_form.html'
     fields = ['category', 'title', 'author', 'price', 'description', 'stock']
     success_url = reverse_lazy('book_list')
 
 class BookDeleteView(DeleteView):
+    """Delete an existing book."""
     model = Book
     template_name = 'book_confirm_delete.html'
     success_url = reverse_lazy('book_list')
 
 
 def register(request):
+    """Register a user and redirect them to the login page."""
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -82,6 +89,7 @@ def register(request):
 
 
 def login_view(request):
+    """Authenticate a user from the custom login form."""
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -96,21 +104,25 @@ def login_view(request):
 
 
 def logout_view(request):
+    """Log out the current user."""
     logout(request)
     return redirect("login")
 
 
 @permission_required("shop.can_manage_books", raise_exception=True)
 def manage_books(request):
+    """Show the book-management page to authorized users."""
     return render(request, "manage_books.html")
 
 def cart_add(request, book_id):
+    """Add the selected book to the session cart."""
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.add(book)
     return redirect('cart_detail')
 
 def cart_remove(request, book_id):
+    """Remove the selected book from the session cart."""
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.remove(book)
@@ -118,24 +130,23 @@ def cart_remove(request, book_id):
 
 
 def cart_clear(request):
+    """Remove all items from the session cart."""
     cart = Cart(request)
     cart.clear()
     return redirect('cart_detail')
 
 
 def cart_detail(request):
+    """Display cart items and their total price."""
     cart = Cart(request)
     return render(request, "cart_detail.html", {
         "cart": list(cart),
         "total": cart.get_total_price()
     })
 class CreateCheckoutSessionView(View):
+    """Create a Stripe Checkout session for the current cart."""
     def post(self, request):
         cart = Cart(request)
-
-        print("SESSION CART:", request.session.get("cart"))
-        print("CART OBJECT:", cart.cart)
-        print("CART ITEMS:", list(cart))
 
         line_items = []
 
@@ -150,7 +161,8 @@ class CreateCheckoutSessionView(View):
                 },
                 "quantity": item["quantity"],
             })
-            print("LINE ITEMS:", line_items)
+        if not line_items:
+            return redirect("cart_detail")
 
         session = stripe.checkout.Session.create(
             mode="payment",
@@ -164,6 +176,7 @@ class CreateCheckoutSessionView(View):
         return redirect(session.url, code= 303)
 
 def payment_success(request):
+    """Create an order for a paid Stripe session and send its confirmation."""
     session_id = request.GET.get("session_id")
 
     if not session_id:
@@ -177,27 +190,35 @@ def payment_success(request):
 
         cart = Cart(request)
         customer = session.customer_details
+        customer_name = getattr(customer, "name", None)
+        customer_email = getattr(customer, "email", None)
 
+        if customer and not customer_name:
+            customer_name = customer.get("name")
+
+        if customer and not customer_email:
+            customer_email = customer.get("email")
         with transaction.atomic():
-
-            order = Order.objects.create(
-                first_name=customer.get("name") if customer and customer.get("name") else "Guest",
-                last_name="",
-                email=customer.get("email") if customer else "",
-                paid=True,
+            order, created = Order.objects.get_or_create(
+                stripe_session_id=session_id,
+                defaults={
+                    "first_name": customer_name or "Guest",
+                    "email": customer_email or "",
+                },
             )
 
-            for item in cart:
-                OrderItem.objects.create(
-                    order=order,
-                    book=item["book"],
-                    price=item["book"].price,
-                    quantity=item["quantity"],
-                )
-
+            if created:
+                for item in cart:
+                    OrderItem.objects.create(
+                        order=order,
+                        book=item["book"],
+                        price=item["book"].price,
+                        quantity=item["quantity"],
+                    )
                 cart.clear()
 
-        send_mail(
+        if created:
+            send_mail(
             subject=f"Order #{order.id}",
             message=(
                 f"Thank you for your order!\n\n"
@@ -208,14 +229,16 @@ def payment_success(request):
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=[order.email],
             fail_silently=False,
-        )
+            )
 
     return render(request, "payment/success.html")
 
 def payment_cancel(request):
+    """Render the page displayed when a payment is cancelled."""
     return render(request, "payment/cancel.html")
 @csrf_exempt
 def stripe_webhook(request):
+    """Validate a Stripe webhook and record a completed payment once."""
     payload = request.body
     sig_header = request.META.get("HTTP_STRIPE_SIGNATURE")
 
@@ -246,10 +269,9 @@ def stripe_webhook(request):
                 paid=True,
             )
 
-            print("ORDER CREATED:", order.id)
-
     return HttpResponse(status=200)
 async def async_book(request, pk):
+    """Asynchronously display one book or return a 404 response."""
     try:
         book = await Book.objects.aget(pk=pk)
     except Book.DoesNotExist:
@@ -265,6 +287,7 @@ async def async_book(request, pk):
 
 
 async def async_order(request, pk):
+    """Asynchronously return a short description of one order."""
     try:
         order = await Order.objects.aget(pk=pk)
     except Order.DoesNotExist:
@@ -274,6 +297,7 @@ async def async_order(request, pk):
 
 
 async def async_create_order(request):
+    """Asynchronously create a demonstration unpaid order."""
     order = await Order.objects.acreate(
         first_name="Test",
         last_name="User",

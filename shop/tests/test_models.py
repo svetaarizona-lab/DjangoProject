@@ -12,6 +12,7 @@ from shop.tests.factories import (
 
 @pytest.mark.django_db
 def test_category_str():
+    # Generated with AI, reviewed and modified
     category = CategoryFactory(name="Fantasy", slug="fantasy")
 
     assert str(category) == "Fantasy"
@@ -19,6 +20,7 @@ def test_category_str():
 
 @pytest.mark.django_db
 def test_category_repr():
+    # Generated with AI, reviewed and modified
     category = CategoryFactory(name="Fantasy", slug="fantasy")
 
     assert repr(category) == "Fantasy"
@@ -26,6 +28,7 @@ def test_category_repr():
 
 @pytest.mark.django_db
 def test_user_str():
+    # Generated with AI, reviewed and modified
     user = UserFactory(username="admin")
 
     assert str(user) == "admin"
@@ -33,6 +36,7 @@ def test_user_str():
 
 @pytest.mark.django_db
 def test_book_str():
+    # Generated with AI, reviewed and modified
     book = BookFactory(
         title="Harry Potter",
         author="J. K. Rowling",
@@ -43,6 +47,7 @@ def test_book_str():
 
 @pytest.mark.django_db
 def test_book_repr():
+    # Generated with AI, reviewed and modified
     book = BookFactory(
         title="Harry Potter",
         author="J. K. Rowling",
@@ -53,6 +58,7 @@ def test_book_repr():
 
 @pytest.mark.django_db
 def test_order_str():
+    # Generated with AI, reviewed and modified
     order = OrderFactory(
         first_name="Ivan",
         last_name="Ivanov",
@@ -64,6 +70,7 @@ def test_order_str():
 
 @pytest.mark.django_db
 def test_order_item_get_cost():
+    # Generated with AI, reviewed and modified
     book = BookFactory(
         title="Harry Potter",
         author="J. K. Rowling",
@@ -88,6 +95,7 @@ def test_order_item_get_cost():
 
 @pytest.mark.django_db
 def test_order_total_cost():
+    # Generated with AI, reviewed and modified
     order = OrderFactory(
         first_name="Ivan",
         last_name="Ivanov",
@@ -121,3 +129,30 @@ def test_order_total_cost():
     )
 
     assert order.get_total_cost() == Decimal("350.00")
+
+
+@pytest.mark.django_db
+def test_user_phone_is_optional():
+    # Generated with AI, reviewed and modified
+    user = UserFactory(phone=None)
+
+    assert user.phone is None
+
+
+@pytest.mark.django_db
+def test_book_belongs_to_category():
+    # Generated with AI, reviewed and modified
+    category = CategoryFactory(name="Science", slug="science")
+    book = BookFactory(category=category, stock=7)
+
+    assert book.category == category
+    assert book.stock == 7
+
+
+@pytest.mark.django_db
+def test_order_is_created_unpaid_by_default():
+    # Generated with AI, reviewed and modified
+    order = OrderFactory(paid=False)
+
+    assert order.paid is False
+    assert order.stripe_session_id is None
