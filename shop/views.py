@@ -28,8 +28,26 @@ from asgiref.sync import sync_to_async
 from django.shortcuts import render
 from django.http import Http404
 
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from .serializers import (
+    CategorySerializer,
+    BookSerializer,
+    OrderSerializer,
+    CartItemSerializer,
+)
+from .models import Category
+from .permissions import IsOwnerOrReadOnly
+
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
 def index(request):
-    """Render the home page."""
+
     return render(request,'index.html')
 
 class BookListView(ListView):
@@ -39,7 +57,7 @@ class BookListView(ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        """Return books sorted by title and optionally filtered by title."""
+
         query = self.request.GET.get("q")
 
         queryset = Book.objects.order_by("title")
@@ -50,33 +68,33 @@ class BookListView(ListView):
         return queryset
 
 class BookDetailView(DetailView):
-    """Display details for one book."""
+
     model = Book
     template_name = "book_detail.html"
 
 class BookCreateView(CreateView):
-    """Create a new book."""
+
     model = Book
     template_name = 'book_form.html'
     fields = ['category', 'title', 'author', 'price', 'description', 'stock']
     success_url = reverse_lazy('book_list')
 
 class BookUpdateView(UpdateView):
-    """Update an existing book."""
+
     model = Book
     template_name = 'book_form.html'
     fields = ['category', 'title', 'author', 'price', 'description', 'stock']
     success_url = reverse_lazy('book_list')
 
 class BookDeleteView(DeleteView):
-    """Delete an existing book."""
+
     model = Book
     template_name = 'book_confirm_delete.html'
     success_url = reverse_lazy('book_list')
 
 
 def register(request):
-    """Register a user and redirect them to the login page."""
+
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -89,7 +107,7 @@ def register(request):
 
 
 def login_view(request):
-    """Authenticate a user from the custom login form."""
+
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -104,25 +122,25 @@ def login_view(request):
 
 
 def logout_view(request):
-    """Log out the current user."""
+
     logout(request)
     return redirect("login")
 
 
 @permission_required("shop.can_manage_books", raise_exception=True)
 def manage_books(request):
-    """Show the book-management page to authorized users."""
+
     return render(request, "manage_books.html")
 
 def cart_add(request, book_id):
-    """Add the selected book to the session cart."""
+
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.add(book)
     return redirect('cart_detail')
 
 def cart_remove(request, book_id):
-    """Remove the selected book from the session cart."""
+
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.remove(book)
@@ -130,21 +148,21 @@ def cart_remove(request, book_id):
 
 
 def cart_clear(request):
-    """Remove all items from the session cart."""
+
     cart = Cart(request)
     cart.clear()
     return redirect('cart_detail')
 
 
 def cart_detail(request):
-    """Display cart items and their total price."""
+
     cart = Cart(request)
     return render(request, "cart_detail.html", {
         "cart": list(cart),
         "total": cart.get_total_price()
     })
 class CreateCheckoutSessionView(View):
-    """Create a Stripe Checkout session for the current cart."""
+
     def post(self, request):
         cart = Cart(request)
 
@@ -176,7 +194,7 @@ class CreateCheckoutSessionView(View):
         return redirect(session.url, code= 303)
 
 def payment_success(request):
-    """Create an order for a paid Stripe session and send its confirmation."""
+
     session_id = request.GET.get("session_id")
 
     if not session_id:
@@ -234,11 +252,11 @@ def payment_success(request):
     return render(request, "payment/success.html")
 
 def payment_cancel(request):
-    """Render the page displayed when a payment is cancelled."""
+
     return render(request, "payment/cancel.html")
 @csrf_exempt
 def stripe_webhook(request):
-    """Validate a Stripe webhook and record a completed payment once."""
+
     payload = request.body
     sig_header = request.META.get("HTTP_STRIPE_SIGNATURE")
 
@@ -271,7 +289,7 @@ def stripe_webhook(request):
 
     return HttpResponse(status=200)
 async def async_book(request, pk):
-    """Asynchronously display one book or return a 404 response."""
+
     try:
         book = await Book.objects.aget(pk=pk)
     except Book.DoesNotExist:
@@ -287,7 +305,7 @@ async def async_book(request, pk):
 
 
 async def async_order(request, pk):
-    """Asynchronously return a short description of one order."""
+
     try:
         order = await Order.objects.aget(pk=pk)
     except Order.DoesNotExist:
@@ -297,7 +315,7 @@ async def async_order(request, pk):
 
 
 async def async_create_order(request):
-    """Asynchronously create a demonstration unpaid order."""
+
     order = await Order.objects.acreate(
         first_name="Test",
         last_name="User",
@@ -306,3 +324,109 @@ async def async_create_order(request):
     )
 
     return HttpResponse(f"Created order #{order.id}")
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [IsAdminUser]
+
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ["name"]
+    ordering_fields = ["name"]
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated]
+
+    filter_backends = [
+        DjangoFilterBackend,
+        SearchFilter,
+        OrderingFilter,
+    ]
+
+    filterset_fields = [
+        "category",
+    ]
+
+    search_fields = [
+        "title",
+        "author",
+    ]
+
+    ordering_fields = [
+        "price",
+        "title",
+        "stock",
+    ]
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+
+    filter_backends = [OrderingFilter]
+    ordering_fields = ["created"]
+
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class CartAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        cart = Cart(request)
+
+        serializer = CartItemSerializer(list(cart), many=True)
+
+        return Response({
+            "items": serializer.data,
+            "total": cart.get_total_price()
+        })
+
+
+class CartAddAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, book_id):
+        cart = Cart(request)
+        book = get_object_or_404(Book, id=book_id)
+
+        cart.add(book)
+
+        return Response(
+            {"message": "Book added to cart"},
+            status=status.HTTP_200_OK,
+        )
+
+
+class CartRemoveAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, book_id):
+        cart = Cart(request)
+        book = get_object_or_404(Book, id=book_id)
+
+        cart.remove(book)
+
+        return Response(
+            {"message": "Book removed"},
+            status=status.HTTP_200_OK,
+        )
+
+
+class CartClearAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request):
+        cart = Cart(request)
+        cart.clear()
+
+        return Response(
+            {"message": "Cart cleared"},
+            status=status.HTTP_200_OK,
+        )
+

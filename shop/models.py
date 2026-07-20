@@ -72,6 +72,15 @@ class Order(models.Model):
     #created = models.DateTimeField(auto_now_add=True)
     #updated = models.DateTimeField(auto_now=True)
     #paid = models.BooleanField(default=False)
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="orders",
+        verbose_name=_("User"),
+        null=True,
+        blank=True,
+    )
+
     first_name = models.CharField(_("First name"), max_length=100)
     last_name = models.CharField(_("Last name"), max_length=100)
     email = models.EmailField(_("Email"))
