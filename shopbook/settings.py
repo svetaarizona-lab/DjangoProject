@@ -4,6 +4,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 import stripe
 from django.utils.translation import gettext_lazy as _
+import os
+import stripe
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
@@ -126,6 +130,12 @@ STATIC_URL = '/static/'
 LOCALE_PATHS = [BASE_DIR / 'locale']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+    }
+}
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
@@ -248,3 +258,35 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
 }
 CORS_ALLOW_ALL_ORIGINS = True
+CELERY_BROKER_URL = "redis://redis:6379/0"
+
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
+
+CELERY_ACCEPT_CONTENT = ["json"]
+
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_RESULT_SERIALIZER = "json"
+
+CELERY_TIMEZONE = TIME_ZONE
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    "generate-report-every-minute": {
+        "task": "shop.tasks.generate_report",
+        "schedule": 60.0,
+    },
+    "clear-expired-sessions-nightly": {
+        "task": "shop.tasks.clear_expired_sessions",
+        "schedule": crontab(hour=3, minute=0),
+    },
+}
+SENTRY_DSN = os.getenv("SENTRY_DSN")
+
+if SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        send_default_pii=True,
+    )

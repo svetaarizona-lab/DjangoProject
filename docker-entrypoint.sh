@@ -10,4 +10,8 @@ echo "Database started"
 
 python manage.py migrate
 
-exec python manage.py runserver 0.0.0.0:8000
+python manage.py collectstatic --noinput
+
+exec gunicorn shopbook.wsgi:application \
+    --bind 0.0.0.0:8000 \
+    --workers 3

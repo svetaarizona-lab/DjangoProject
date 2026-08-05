@@ -9273,3 +9273,451 @@ Traceback (most recent call last):
     raise PermissionDenied
 django.core.exceptions.PermissionDenied
 WARNING 2026-07-13 11:40:49,193 log Not Found: /book/999/
+INFO 2026-07-31 11:53:39,382 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 11:57:31,869 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-31 11:57:32,898 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 11:57:43,941 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-31 11:57:44,773 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 12:03:18,805 middleware ➡️ Request: GET /admin
+INFO 2026-07-31 12:03:18,819 middleware ⬅️ Response: GET /admin Status: 404 Time: 0.0139s
+INFO 2026-07-31 12:03:18,826 log "GET /admin HTTP/1.1" 301 0
+INFO 2026-07-31 12:03:18,832 middleware ➡️ Request: GET /admin/
+INFO 2026-07-31 12:03:18,837 middleware ⬅️ Response: GET /admin/ Status: 302 Time: 0.0042s
+INFO 2026-07-31 12:03:18,838 log "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-07-31 12:03:18,884 middleware ➡️ Request: GET /admin/login/
+INFO 2026-07-31 12:03:18,913 middleware ⬅️ Response: GET /admin/login/ Status: 200 Time: 0.0286s
+INFO 2026-07-31 12:03:18,916 log "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4308
+INFO 2026-07-31 12:03:18,971 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-07-31 12:03:18,976 log "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-07-31 12:03:18,980 log "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-07-31 12:03:18,981 log "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273
+INFO 2026-07-31 12:03:18,981 log "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-07-31 12:03:18,982 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-07-31 12:03:19,001 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-07-31 12:03:19,070 middleware ➡️ Request: GET /favicon.ico
+INFO 2026-07-31 12:03:19,076 middleware ⬅️ Response: GET /favicon.ico Status: 404 Time: 0.0062s
+WARNING 2026-07-31 12:03:19,078 log Not Found: /favicon.ico
+WARNING 2026-07-31 12:03:19,080 log "GET /favicon.ico HTTP/1.1" 404 15145
+INFO 2026-07-31 12:06:47,089 middleware ➡️ Request: GET /book
+INFO 2026-07-31 12:06:47,097 middleware ⬅️ Response: GET /book Status: 404 Time: 0.0077s
+WARNING 2026-07-31 12:06:47,100 log Not Found: /book
+WARNING 2026-07-31 12:06:47,101 log "GET /book HTTP/1.1" 404 15124
+INFO 2026-07-31 12:06:52,560 middleware ➡️ Request: GET /cart
+INFO 2026-07-31 12:06:52,570 middleware ⬅️ Response: GET /cart Status: 404 Time: 0.0106s
+INFO 2026-07-31 12:06:52,576 log "GET /cart HTTP/1.1" 301 0
+INFO 2026-07-31 12:06:52,584 middleware ➡️ Request: GET /cart/
+INFO 2026-07-31 12:06:52,633 middleware ⬅️ Response: GET /cart/ Status: 200 Time: 0.0485s
+INFO 2026-07-31 12:06:52,635 log "GET /cart/ HTTP/1.1" 200 897
+INFO 2026-07-31 12:07:22,706 middleware ➡️ Request: GET /booklist
+INFO 2026-07-31 12:07:22,714 middleware ⬅️ Response: GET /booklist Status: 404 Time: 0.008s
+WARNING 2026-07-31 12:07:22,715 log Not Found: /booklist
+WARNING 2026-07-31 12:07:22,719 log "GET /booklist HTTP/1.1" 404 15136
+INFO 2026-07-31 12:08:28,173 middleware ➡️ Request: GET /books/
+INFO 2026-07-31 12:08:28,182 middleware ⬅️ Response: GET /books/ Status: 404 Time: 0.009s
+WARNING 2026-07-31 12:08:28,185 log Not Found: /books/
+WARNING 2026-07-31 12:08:28,187 log "GET /books/ HTTP/1.1" 404 15130
+INFO 2026-07-31 12:09:29,655 middleware ➡️ Request: GET /
+INFO 2026-07-31 12:09:29,823 middleware ⬅️ Response: GET / Status: 200 Time: 0.1674s
+INFO 2026-07-31 12:09:29,825 log "GET / HTTP/1.1" 200 2346
+INFO 2026-07-31 12:15:17,415 middleware ➡️ Request: GET /
+INFO 2026-07-31 12:15:17,454 middleware ⬅️ Response: GET / Status: 200 Time: 0.0386s
+INFO 2026-07-31 12:15:17,457 log "GET / HTTP/1.1" 200 2346
+INFO 2026-07-31 12:17:23,481 middleware ➡️ Request: GET /
+INFO 2026-07-31 12:17:23,503 middleware ⬅️ Response: GET / Status: 200 Time: 0.0218s
+INFO 2026-07-31 12:17:23,504 log "GET /?q=history HTTP/1.1" 200 2043
+INFO 2026-07-31 12:19:25,297 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-31 12:19:26,520 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 12:19:42,373 autoreload /app/shop/views.py changed, reloading.
+INFO 2026-07-31 12:19:43,161 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 12:20:00,692 middleware ➡️ Request: GET /book/1/
+INFO 2026-07-31 12:20:00,748 middleware ⬅️ Response: GET /book/1/ Status: 404 Time: 0.0566s
+WARNING 2026-07-31 12:20:00,750 log Not Found: /book/1/
+WARNING 2026-07-31 12:20:00,751 log "GET /book/1/ HTTP/1.1" 404 6449
+INFO 2026-07-31 12:20:05,715 middleware ➡️ Request: GET /book
+INFO 2026-07-31 12:20:05,723 middleware ⬅️ Response: GET /book Status: 404 Time: 0.0077s
+WARNING 2026-07-31 12:20:05,728 log Not Found: /book
+WARNING 2026-07-31 12:20:05,732 log "GET /book HTTP/1.1" 404 15124
+INFO 2026-07-31 12:20:09,353 middleware ➡️ Request: GET /book/5
+INFO 2026-07-31 12:20:09,361 middleware ⬅️ Response: GET /book/5 Status: 404 Time: 0.0075s
+INFO 2026-07-31 12:20:09,363 log "GET /book/5 HTTP/1.1" 301 0
+INFO 2026-07-31 12:20:09,371 middleware ➡️ Request: GET /book/5/
+INFO 2026-07-31 12:20:09,423 middleware ⬅️ Response: GET /book/5/ Status: 200 Time: 0.0516s
+INFO 2026-07-31 12:20:09,425 log "GET /book/5/ HTTP/1.1" 200 192
+INFO 2026-07-31 12:20:14,239 middleware ➡️ Request: GET /book/4
+INFO 2026-07-31 12:20:14,247 middleware ⬅️ Response: GET /book/4 Status: 404 Time: 0.0088s
+INFO 2026-07-31 12:20:14,251 log "GET /book/4 HTTP/1.1" 301 0
+INFO 2026-07-31 12:20:14,261 middleware ➡️ Request: GET /book/4/
+INFO 2026-07-31 12:20:14,277 middleware ⬅️ Response: GET /book/4/ Status: 200 Time: 0.0167s
+INFO 2026-07-31 12:20:14,279 log "GET /book/4/ HTTP/1.1" 200 192
+INFO 2026-07-31 12:25:52,645 autoreload /app/shop/apps.py changed, reloading.
+INFO 2026-07-31 12:25:53,881 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 12:26:15,901 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 12:27:48,526 middleware ➡️ Request: GET /book/2
+INFO 2026-07-31 12:27:48,532 middleware ⬅️ Response: GET /book/2 Status: 404 Time: 0.0063s
+INFO 2026-07-31 12:27:48,535 log "GET /book/2 HTTP/1.1" 301 0
+INFO 2026-07-31 12:27:48,540 middleware ➡️ Request: GET /book/2/
+INFO 2026-07-31 12:27:48,615 middleware ⬅️ Response: GET /book/2/ Status: 404 Time: 0.0756s
+WARNING 2026-07-31 12:27:48,620 log Not Found: /book/2/
+WARNING 2026-07-31 12:27:48,634 log "GET /book/2/ HTTP/1.1" 404 6449
+INFO 2026-07-31 12:27:53,365 middleware ➡️ Request: GET /book/4/
+INFO 2026-07-31 12:27:53,394 middleware ⬅️ Response: GET /book/4/ Status: 200 Time: 0.0288s
+INFO 2026-07-31 12:27:53,395 log "GET /book/4/ HTTP/1.1" 200 192
+INFO 2026-07-31 12:28:01,249 middleware ➡️ Request: GET /book/5/
+INFO 2026-07-31 12:28:01,266 middleware ⬅️ Response: GET /book/5/ Status: 200 Time: 0.0163s
+INFO 2026-07-31 12:28:01,268 log "GET /book/5/ HTTP/1.1" 200 192
+INFO 2026-07-31 12:35:52,005 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:29:03,573 autoreload /app/shopbook/__init__.py changed, reloading.
+INFO 2026-07-31 13:29:04,836 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:29:27,254 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-31 13:29:28,137 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:29:35,742 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-31 13:29:36,642 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:30:02,997 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:32:17,253 middleware ➡️ Request: GET /
+INFO 2026-07-31 13:32:17,360 middleware ⬅️ Response: GET / Status: 200 Time: 0.1074s
+INFO 2026-07-31 13:32:17,367 log "GET / HTTP/1.1" 200 2346
+INFO 2026-07-31 13:34:46,493 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:42:41,983 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:43:28,898 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-31 13:43:30,138 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:43:38,007 autoreload /app/shopbook/settings.py changed, reloading.
+INFO 2026-07-31 13:43:38,924 autoreload Watching for file changes with StatReloader
+INFO 2026-07-31 13:46:45,146 middleware ➡️ Request: GET /
+INFO 2026-07-31 13:46:45,253 middleware ⬅️ Response: GET / Status: 200 Time: 0.1076s
+INFO 2026-07-31 16:26:44,558 middleware ➡️ Request: GET /
+INFO 2026-07-31 16:26:44,656 middleware ⬅️ Response: GET / Status: 200 Time: 0.0987s
+INFO 2026-07-31 16:26:44,952 middleware ➡️ Request: GET /favicon.ico
+INFO 2026-07-31 16:26:44,959 middleware ⬅️ Response: GET /favicon.ico Status: 404 Time: 0.007s
+WARNING 2026-07-31 16:26:44,962 log Not Found: /favicon.ico
+INFO 2026-07-31 16:44:17,024 middleware ➡️ Request: GET /
+INFO 2026-07-31 16:44:17,094 middleware ⬅️ Response: GET / Status: 200 Time: 0.07s
+INFO 2026-07-31 16:46:10,579 middleware ➡️ Request: GET /sentry-test/
+INFO 2026-07-31 16:46:10,592 middleware ⬅️ Response: GET /sentry-test/ Status: 404 Time: 0.0131s
+WARNING 2026-07-31 16:46:10,599 log Not Found: /sentry-test/
+INFO 2026-07-31 16:50:21,008 middleware ➡️ Request: GET /sentry-test/
+ERROR 2026-07-31 16:50:21,123 log Internal Server Error: /sentry-test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/app/shop/views.py", line 450, in sentry_test
+    division_by_zero = 1 / 0
+                       ~~^~~
+ZeroDivisionError: division by zero
+INFO 2026-07-31 16:50:21,133 middleware ⬅️ Response: GET /sentry-test/ Status: 500 Time: 0.1252s
+INFO 2026-07-31 16:53:11,037 middleware ➡️ Request: GET /checkout/success/
+ERROR 2026-07-31 16:53:11,128 log Internal Server Error: /checkout/success/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column shop_order.stripe_session_id does not exist
+LINE 1: ...ed", "shop_order"."updated", "shop_order"."paid", "shop_orde...
+                                                             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/app/shop/views.py", line 236, in payment_success
+    order, created = Order.objects.get_or_create(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        stripe_session_id=session_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        },
+        ^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 987, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/utils.py", line 1816, in runner
+    return sentry_patched_function(*args, **kwargs)
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/integrations/django/__init__.py", line 652, in execute
+    result = real_execute(self, sql, params)
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column shop_order.stripe_session_id does not exist
+LINE 1: ...ed", "shop_order"."updated", "shop_order"."paid", "shop_orde...
+                                                             ^
+INFO 2026-07-31 16:53:11,151 middleware ⬅️ Response: GET /checkout/success/ Status: 500 Time: 0.1136s
+INFO 2026-07-31 16:53:11,419 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:53:11,433 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0135s
+INFO 2026-07-31 16:53:11,631 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:53:11,633 middleware ⬅️ Response: GET /api/books/ Status: 401 Time: 0.002s
+WARNING 2026-07-31 16:53:11,635 log Unauthorized: /api/books/
+INFO 2026-07-31 16:53:11,843 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:53:12,051 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.2084s
+INFO 2026-07-31 16:53:12,246 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:53:12,439 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1934s
+INFO 2026-07-31 16:53:12,445 middleware ➡️ Request: POST /api/token/refresh/
+INFO 2026-07-31 16:53:12,450 middleware ⬅️ Response: POST /api/token/refresh/ Status: 200 Time: 0.0057s
+INFO 2026-07-31 16:53:12,643 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:53:12,836 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.193s
+INFO 2026-07-31 16:53:12,839 middleware ➡️ Request: POST /api/token/verify/
+INFO 2026-07-31 16:53:12,843 middleware ⬅️ Response: POST /api/token/verify/ Status: 200 Time: 0.0046s
+INFO 2026-07-31 16:53:13,062 middleware ➡️ Request: POST /api/books/
+INFO 2026-07-31 16:53:13,072 middleware ⬅️ Response: POST /api/books/ Status: 201 Time: 0.0101s
+INFO 2026-07-31 16:53:13,266 middleware ➡️ Request: DELETE /api/books/3/
+INFO 2026-07-31 16:53:13,274 middleware ⬅️ Response: DELETE /api/books/3/ Status: 204 Time: 0.0073s
+INFO 2026-07-31 16:53:13,470 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:53:13,478 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0078s
+INFO 2026-07-31 16:53:13,678 middleware ➡️ Request: GET /api/books/5/
+INFO 2026-07-31 16:53:13,684 middleware ⬅️ Response: GET /api/books/5/ Status: 200 Time: 0.0056s
+INFO 2026-07-31 16:53:13,892 middleware ➡️ Request: PATCH /api/books/6/
+INFO 2026-07-31 16:53:13,899 middleware ⬅️ Response: PATCH /api/books/6/ Status: 200 Time: 0.0068s
+INFO 2026-07-31 16:53:14,099 middleware ➡️ Request: POST /api/cart/add/7/
+INFO 2026-07-31 16:53:14,104 middleware ⬅️ Response: POST /api/cart/add/7/ Status: 200 Time: 0.0047s
+INFO 2026-07-31 16:53:14,309 middleware ➡️ Request: POST /api/cart/add/8/
+INFO 2026-07-31 16:53:14,314 middleware ⬅️ Response: POST /api/cart/add/8/ Status: 200 Time: 0.0051s
+INFO 2026-07-31 16:53:14,322 middleware ➡️ Request: DELETE /api/cart/clear/
+INFO 2026-07-31 16:53:14,328 middleware ⬅️ Response: DELETE /api/cart/clear/ Status: 200 Time: 0.006s
+INFO 2026-07-31 16:53:14,521 middleware ➡️ Request: GET /api/cart/
+INFO 2026-07-31 16:53:14,525 middleware ⬅️ Response: GET /api/cart/ Status: 200 Time: 0.0033s
+INFO 2026-07-31 16:53:14,760 middleware ➡️ Request: POST /api/cart/add/10/
+INFO 2026-07-31 16:53:14,764 middleware ⬅️ Response: POST /api/cart/add/10/ Status: 200 Time: 0.0041s
+INFO 2026-07-31 16:53:14,769 middleware ➡️ Request: DELETE /api/cart/remove/10/
+INFO 2026-07-31 16:53:14,775 middleware ⬅️ Response: DELETE /api/cart/remove/10/ Status: 200 Time: 0.0059s
+INFO 2026-07-31 16:53:14,979 middleware ➡️ Request: POST /api/categories/
+INFO 2026-07-31 16:53:14,991 middleware ⬅️ Response: POST /api/categories/ Status: 201 Time: 0.0114s
+INFO 2026-07-31 16:53:15,187 middleware ➡️ Request: DELETE /api/categories/12/
+INFO 2026-07-31 16:53:15,200 middleware ⬅️ Response: DELETE /api/categories/12/ Status: 204 Time: 0.0121s
+INFO 2026-07-31 16:53:15,396 middleware ➡️ Request: GET /api/categories/
+INFO 2026-07-31 16:53:15,408 middleware ⬅️ Response: GET /api/categories/ Status: 200 Time: 0.0123s
+INFO 2026-07-31 16:53:15,605 middleware ➡️ Request: GET /api/categories/14/
+INFO 2026-07-31 16:53:15,611 middleware ⬅️ Response: GET /api/categories/14/ Status: 200 Time: 0.0061s
+INFO 2026-07-31 16:53:15,801 middleware ➡️ Request: PATCH /api/categories/15/
+INFO 2026-07-31 16:53:15,807 middleware ⬅️ Response: PATCH /api/categories/15/ Status: 200 Time: 0.0057s
+INFO 2026-07-31 16:55:35,744 middleware ➡️ Request: GET /checkout/success/
+ERROR 2026-07-31 16:55:35,819 log Internal Server Error: /checkout/success/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedColumn: column shop_order.stripe_session_id does not exist
+LINE 1: ...ed", "shop_order"."updated", "shop_order"."paid", "shop_orde...
+                                                             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/integrations/django/views.py", line 94, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/app/shop/views.py", line 236, in payment_success
+    order, created = Order.objects.get_or_create(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        stripe_session_id=session_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        },
+        ^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 987, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 635, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/usr/local/lib/python3.13/site-packages/django/db/models/sql/compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/utils.py", line 1816, in runner
+    return sentry_patched_function(*args, **kwargs)
+  File "/usr/local/lib/python3.13/site-packages/sentry_sdk/integrations/django/__init__.py", line 652, in execute
+    result = real_execute(self, sql, params)
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/django/db/utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.13/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/psycopg/cursor.py", line 117, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: column shop_order.stripe_session_id does not exist
+LINE 1: ...ed", "shop_order"."updated", "shop_order"."paid", "shop_orde...
+                                                             ^
+INFO 2026-07-31 16:55:35,835 middleware ⬅️ Response: GET /checkout/success/ Status: 500 Time: 0.0914s
+INFO 2026-07-31 16:55:36,068 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:55:36,078 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0101s
+INFO 2026-07-31 16:55:36,285 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:55:36,287 middleware ⬅️ Response: GET /api/books/ Status: 401 Time: 0.0021s
+WARNING 2026-07-31 16:55:36,288 log Unauthorized: /api/books/
+INFO 2026-07-31 16:55:36,481 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:55:36,676 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1944s
+INFO 2026-07-31 16:55:36,866 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:55:37,057 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1906s
+INFO 2026-07-31 16:55:37,059 middleware ➡️ Request: POST /api/token/refresh/
+INFO 2026-07-31 16:55:37,065 middleware ⬅️ Response: POST /api/token/refresh/ Status: 200 Time: 0.0063s
+INFO 2026-07-31 16:55:37,257 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 16:55:37,447 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1901s
+INFO 2026-07-31 16:55:37,449 middleware ➡️ Request: POST /api/token/verify/
+INFO 2026-07-31 16:55:37,453 middleware ⬅️ Response: POST /api/token/verify/ Status: 200 Time: 0.0037s
+INFO 2026-07-31 16:55:37,651 middleware ➡️ Request: POST /api/books/
+INFO 2026-07-31 16:55:37,659 middleware ⬅️ Response: POST /api/books/ Status: 201 Time: 0.0075s
+INFO 2026-07-31 16:55:37,858 middleware ➡️ Request: DELETE /api/books/3/
+INFO 2026-07-31 16:55:37,869 middleware ⬅️ Response: DELETE /api/books/3/ Status: 204 Time: 0.0105s
+INFO 2026-07-31 16:55:38,072 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 16:55:38,081 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0089s
+INFO 2026-07-31 16:55:38,276 middleware ➡️ Request: GET /api/books/5/
+INFO 2026-07-31 16:55:38,282 middleware ⬅️ Response: GET /api/books/5/ Status: 200 Time: 0.0061s
+INFO 2026-07-31 16:55:38,482 middleware ➡️ Request: PATCH /api/books/6/
+INFO 2026-07-31 16:55:38,494 middleware ⬅️ Response: PATCH /api/books/6/ Status: 200 Time: 0.0122s
+INFO 2026-07-31 16:55:38,706 middleware ➡️ Request: POST /api/cart/add/7/
+INFO 2026-07-31 16:55:38,713 middleware ⬅️ Response: POST /api/cart/add/7/ Status: 200 Time: 0.0075s
+INFO 2026-07-31 16:55:38,907 middleware ➡️ Request: POST /api/cart/add/8/
+INFO 2026-07-31 16:55:38,914 middleware ⬅️ Response: POST /api/cart/add/8/ Status: 200 Time: 0.0063s
+INFO 2026-07-31 16:55:38,925 middleware ➡️ Request: DELETE /api/cart/clear/
+INFO 2026-07-31 16:55:38,931 middleware ⬅️ Response: DELETE /api/cart/clear/ Status: 200 Time: 0.0062s
+INFO 2026-07-31 16:55:39,135 middleware ➡️ Request: GET /api/cart/
+INFO 2026-07-31 16:55:39,139 middleware ⬅️ Response: GET /api/cart/ Status: 200 Time: 0.0043s
+INFO 2026-07-31 16:55:39,356 middleware ➡️ Request: POST /api/cart/add/10/
+INFO 2026-07-31 16:55:39,361 middleware ⬅️ Response: POST /api/cart/add/10/ Status: 200 Time: 0.0044s
+INFO 2026-07-31 16:55:39,367 middleware ➡️ Request: DELETE /api/cart/remove/10/
+INFO 2026-07-31 16:55:39,372 middleware ⬅️ Response: DELETE /api/cart/remove/10/ Status: 200 Time: 0.0052s
+INFO 2026-07-31 16:55:39,579 middleware ➡️ Request: POST /api/categories/
+INFO 2026-07-31 16:55:39,593 middleware ⬅️ Response: POST /api/categories/ Status: 201 Time: 0.0135s
+INFO 2026-07-31 16:55:39,794 middleware ➡️ Request: DELETE /api/categories/12/
+INFO 2026-07-31 16:55:39,801 middleware ⬅️ Response: DELETE /api/categories/12/ Status: 204 Time: 0.0068s
+INFO 2026-07-31 16:55:40,022 middleware ➡️ Request: GET /api/categories/
+INFO 2026-07-31 16:55:40,061 middleware ⬅️ Response: GET /api/categories/ Status: 200 Time: 0.0391s
+INFO 2026-07-31 16:55:40,250 middleware ➡️ Request: GET /api/categories/14/
+INFO 2026-07-31 16:55:40,256 middleware ⬅️ Response: GET /api/categories/14/ Status: 200 Time: 0.0061s
+INFO 2026-07-31 16:55:40,460 middleware ➡️ Request: PATCH /api/categories/15/
+INFO 2026-07-31 16:55:40,469 middleware ⬅️ Response: PATCH /api/categories/15/ Status: 200 Time: 0.0091s
+INFO 2026-07-31 17:02:47,235 middleware ➡️ Request: GET /checkout/success/
+INFO 2026-07-31 17:02:47,372 middleware ⬅️ Response: GET /checkout/success/ Status: 200 Time: 0.1375s
+INFO 2026-07-31 17:02:47,587 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 17:02:47,606 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0187s
+INFO 2026-07-31 17:02:47,810 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 17:02:47,813 middleware ⬅️ Response: GET /api/books/ Status: 401 Time: 0.0027s
+WARNING 2026-07-31 17:02:47,817 log Unauthorized: /api/books/
+INFO 2026-07-31 17:02:48,014 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 17:02:48,214 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.2s
+INFO 2026-07-31 17:02:48,411 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 17:02:48,605 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1938s
+INFO 2026-07-31 17:02:48,608 middleware ➡️ Request: POST /api/token/refresh/
+INFO 2026-07-31 17:02:48,619 middleware ⬅️ Response: POST /api/token/refresh/ Status: 200 Time: 0.0117s
+INFO 2026-07-31 17:02:48,811 middleware ➡️ Request: POST /api/token/
+INFO 2026-07-31 17:02:49,004 middleware ⬅️ Response: POST /api/token/ Status: 200 Time: 0.1931s
+INFO 2026-07-31 17:02:49,007 middleware ➡️ Request: POST /api/token/verify/
+INFO 2026-07-31 17:02:49,012 middleware ⬅️ Response: POST /api/token/verify/ Status: 200 Time: 0.0047s
+INFO 2026-07-31 17:02:49,224 middleware ➡️ Request: POST /api/books/
+INFO 2026-07-31 17:02:49,232 middleware ⬅️ Response: POST /api/books/ Status: 201 Time: 0.008s
+INFO 2026-07-31 17:02:49,442 middleware ➡️ Request: DELETE /api/books/3/
+INFO 2026-07-31 17:02:49,451 middleware ⬅️ Response: DELETE /api/books/3/ Status: 204 Time: 0.0089s
+INFO 2026-07-31 17:02:49,637 middleware ➡️ Request: GET /api/books/
+INFO 2026-07-31 17:02:49,645 middleware ⬅️ Response: GET /api/books/ Status: 200 Time: 0.0072s
+INFO 2026-07-31 17:02:49,844 middleware ➡️ Request: GET /api/books/5/
+INFO 2026-07-31 17:02:49,850 middleware ⬅️ Response: GET /api/books/5/ Status: 200 Time: 0.0058s
+INFO 2026-07-31 17:02:50,045 middleware ➡️ Request: PATCH /api/books/6/
+INFO 2026-07-31 17:02:50,053 middleware ⬅️ Response: PATCH /api/books/6/ Status: 200 Time: 0.0082s
+INFO 2026-07-31 17:02:50,255 middleware ➡️ Request: POST /api/cart/add/7/
+INFO 2026-07-31 17:02:50,259 middleware ⬅️ Response: POST /api/cart/add/7/ Status: 200 Time: 0.0047s
+INFO 2026-07-31 17:02:50,454 middleware ➡️ Request: POST /api/cart/add/8/
+INFO 2026-07-31 17:02:50,459 middleware ⬅️ Response: POST /api/cart/add/8/ Status: 200 Time: 0.0046s
+INFO 2026-07-31 17:02:50,464 middleware ➡️ Request: DELETE /api/cart/clear/
+INFO 2026-07-31 17:02:50,474 middleware ⬅️ Response: DELETE /api/cart/clear/ Status: 200 Time: 0.0102s
+INFO 2026-07-31 17:02:50,678 middleware ➡️ Request: GET /api/cart/
+INFO 2026-07-31 17:02:50,682 middleware ⬅️ Response: GET /api/cart/ Status: 200 Time: 0.0038s
+INFO 2026-07-31 17:02:50,881 middleware ➡️ Request: POST /api/cart/add/10/
+INFO 2026-07-31 17:02:50,885 middleware ⬅️ Response: POST /api/cart/add/10/ Status: 200 Time: 0.0038s
+INFO 2026-07-31 17:02:50,890 middleware ➡️ Request: DELETE /api/cart/remove/10/
+INFO 2026-07-31 17:02:50,896 middleware ⬅️ Response: DELETE /api/cart/remove/10/ Status: 200 Time: 0.0059s
+INFO 2026-07-31 17:02:51,113 middleware ➡️ Request: POST /api/categories/
+INFO 2026-07-31 17:02:51,120 middleware ⬅️ Response: POST /api/categories/ Status: 201 Time: 0.0073s
+INFO 2026-07-31 17:02:51,319 middleware ➡️ Request: DELETE /api/categories/12/
+INFO 2026-07-31 17:02:51,327 middleware ⬅️ Response: DELETE /api/categories/12/ Status: 204 Time: 0.009s
+INFO 2026-07-31 17:02:51,525 middleware ➡️ Request: GET /api/categories/
+INFO 2026-07-31 17:02:51,535 middleware ⬅️ Response: GET /api/categories/ Status: 200 Time: 0.0105s
+INFO 2026-07-31 17:02:51,726 middleware ➡️ Request: GET /api/categories/14/
+INFO 2026-07-31 17:02:51,732 middleware ⬅️ Response: GET /api/categories/14/ Status: 200 Time: 0.0061s
+INFO 2026-07-31 17:02:51,933 middleware ➡️ Request: PATCH /api/categories/15/
+INFO 2026-07-31 17:02:51,938 middleware ⬅️ Response: PATCH /api/categories/15/ Status: 200 Time: 0.0055s
+INFO 2026-07-31 17:02:52,142 middleware ➡️ Request: POST /api/orders/
+INFO 2026-07-31 17:02:52,175 middleware ⬅️ Response: POST /api/orders/ Status: 201 Time: 0.0327s
+INFO 2026-07-31 17:02:52,362 middleware ➡️ Request: DELETE /api/orders/4/
+INFO 2026-07-31 17:02:52,370 middleware ⬅️ Response: DELETE /api/orders/4/ Status: 204 Time: 0.0077s
+INFO 2026-07-31 17:02:52,566 middleware ➡️ Request: GET /api/orders/5/
+INFO 2026-07-31 17:02:52,572 middleware ⬅️ Response: GET /api/orders/5/ Status: 200 Time: 0.006s
+INFO 2026-07-31 17:02:52,765 middleware ➡️ Request: GET /api/orders/
+INFO 2026-07-31 17:02:52,773 middleware ⬅️ Response: GET /api/orders/ Status: 200 Time: 0.0088s
+INFO 2026-07-31 17:02:53,158 middleware ➡️ Request: GET /api/orders/
+INFO 2026-07-31 17:02:53,164 middleware ⬅️ Response: GET /api/orders/ Status: 200 Time: 0.0062s
+INFO 2026-07-31 17:02:53,349 middleware ➡️ Request: PATCH /api/orders/9/
+INFO 2026-07-31 17:02:53,362 middleware ⬅️ Response: PATCH /api/orders/9/ Status: 200 Time: 0.013s

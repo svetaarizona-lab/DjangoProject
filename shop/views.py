@@ -20,7 +20,7 @@ from .cart import Cart
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import transaction
@@ -46,10 +46,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.core.cache import cache
+
 def index(request):
 
     return render(request,'index.html')
 
+@method_decorator(cache_page(60 * 5), name="dispatch")
 class BookListView(ListView):
     model = Book
     template_name = "book_list.html"
@@ -68,9 +73,20 @@ class BookListView(ListView):
         return queryset
 
 class BookDetailView(DetailView):
-
     model = Book
     template_name = "book_detail.html"
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs["pk"]
+        cache_key = f"book_{pk}"
+
+        book = cache.get(cache_key)
+
+        if book is None:
+            book = super().get_object(queryset)
+            cache.set(cache_key, book, 300)
+
+        return book
 
 class BookCreateView(CreateView):
 
