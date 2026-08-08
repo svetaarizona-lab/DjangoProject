@@ -40,6 +40,6 @@ urlpatterns = [
     path("async/book/<int:pk>/", views.async_book, name="async_book"),
     path("async/order/<int:pk>/", views.async_order, name="async_order"),
     path("async/create-order/", views.async_create_order, name="async_create_order"),
-
+    path("health/", views.health_check, name="health"),
 ]
 urlpatterns += router.urls

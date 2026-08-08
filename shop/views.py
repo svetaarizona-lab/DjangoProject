@@ -49,7 +49,7 @@ from rest_framework import status
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
-
+from django.http import JsonResponse
 def index(request):
 
     return render(request,'index.html')
@@ -445,4 +445,5 @@ class CartClearAPIView(APIView):
             {"message": "Cart cleared"},
             status=status.HTTP_200_OK,
         )
-
+def health_check(request):
+    return JsonResponse({"status": "ok"})

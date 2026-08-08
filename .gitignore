@@ -4,3 +4,7 @@ __pycache__/
 db.sqlite3
 .idea/
 /.env
+*.log
+celerybeat-schedule*
+staticfiles/
+shopbook/staticfiles/
