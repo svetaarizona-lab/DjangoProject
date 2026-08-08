@@ -54,7 +54,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          ddocker build -t svet12345/django-shopbook:latest .
+          docker build -t svet12345/django-shopbook:latest .
 
       - name: Push Docker image
         run: |
