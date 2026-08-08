@@ -7,24 +7,28 @@ from shop.models import User
 
 @pytest.mark.django_db
 def test_valid_user_creation_form():
-    form = CustomUserCreationForm(data={
-        "username": "testuser",
-        "email": "test@example.com",
-        "password1": "StrongPassword123",
-        "password2": "StrongPassword123",
-    })
+    form = CustomUserCreationForm(
+        data={
+            "username": "testuser",
+            "email": "test@example.com",
+            "password1": "StrongPassword123",
+            "password2": "StrongPassword123",
+        }
+    )
 
     assert form.is_valid()
 
 
 @pytest.mark.django_db
 def test_passwords_do_not_match():
-    form = CustomUserCreationForm(data={
-        "username": "testuser",
-        "email": "test@example.com",
-        "password1": "StrongPassword123",
-        "password2": "WrongPassword123",
-    })
+    form = CustomUserCreationForm(
+        data={
+            "username": "testuser",
+            "email": "test@example.com",
+            "password1": "StrongPassword123",
+            "password2": "WrongPassword123",
+        }
+    )
 
     assert not form.is_valid()
     assert "password2" in form.errors
@@ -32,12 +36,14 @@ def test_passwords_do_not_match():
 
 @pytest.mark.django_db
 def test_username_is_required():
-    form = CustomUserCreationForm(data={
-        "username": "",
-        "email": "test@example.com",
-        "password1": "StrongPassword123",
-        "password2": "StrongPassword123",
-    })
+    form = CustomUserCreationForm(
+        data={
+            "username": "",
+            "email": "test@example.com",
+            "password1": "StrongPassword123",
+            "password2": "StrongPassword123",
+        }
+    )
 
     assert not form.is_valid()
     assert "username" in form.errors
@@ -45,12 +51,14 @@ def test_username_is_required():
 
 @pytest.mark.django_db
 def test_form_save_creates_user():
-    form = CustomUserCreationForm(data={
-        "username": "newuser",
-        "email": "new@example.com",
-        "password1": "StrongPassword123",
-        "password2": "StrongPassword123",
-    })
+    form = CustomUserCreationForm(
+        data={
+            "username": "newuser",
+            "email": "new@example.com",
+            "password1": "StrongPassword123",
+            "password2": "StrongPassword123",
+        }
+    )
 
     assert form.is_valid()
 

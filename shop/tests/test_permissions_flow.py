@@ -21,9 +21,7 @@ def test_manage_books_without_permission(client):
 def test_manage_books_with_permission(client):
     user = UserFactory()
 
-    permission = Permission.objects.get(
-        codename="can_manage_books"
-    )
+    permission = Permission.objects.get(codename="can_manage_books")
 
     user.user_permissions.add(permission)
 

@@ -1,4 +1,3 @@
-
 import pytest
 
 from django.urls import reverse
@@ -9,7 +8,6 @@ from shop.tests.factories import UserFactory
 
 @pytest.mark.django_db
 def test_user_registration_flow(client):
-
 
     response = client.post(
         reverse("register"),
@@ -28,7 +26,6 @@ def test_user_registration_flow(client):
 
 @pytest.mark.django_db
 def test_user_login_flow(client):
-
 
     UserFactory(
         username="john",
@@ -49,7 +46,6 @@ def test_user_login_flow(client):
 
 @pytest.mark.django_db
 def test_user_logout_flow(client):
-
 
     user = UserFactory(
         username="john",

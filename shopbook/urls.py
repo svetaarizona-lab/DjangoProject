@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from shop import views
@@ -21,39 +20,32 @@ from drf_spectacular.views import (
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path("admin/", admin.site.urls),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-    'api/docs/',
-    SpectacularSwaggerView.as_view(url_name='schema'),
-    name='swagger-ui',
-),
-
-    path('i18n/setlang/', set_language, name='set_language'),
-
-    path('', include('shop.urls')),
-    path('webhook/', WebhookReceivedView.as_view(), name='webhook'),
-
-    path('book/<int:pk>/', BookDetailView.as_view(), name='book_detail'),
-    path('create/', BookCreateView.as_view(), name='book_create'),
-    path('update/<int:pk>/', BookUpdateView.as_view(), name='book_update'),
-    path('delete/<int:pk>/', BookDeleteView.as_view(), name='book_delete'),
-
-    path('accounts/', include('django.contrib.auth.urls')),
-
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-    path('register/', views.register, name='register'),
-    path('webhook/', WebhookReceivedView.as_view(), name='webhook'),
-
+        "api/docs/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
+    ),
+    path("i18n/setlang/", set_language, name="set_language"),
+    path("", include("shop.urls")),
+    path("webhook/", WebhookReceivedView.as_view(), name="webhook"),
+    path("book/<int:pk>/", BookDetailView.as_view(), name="book_detail"),
+    path("create/", BookCreateView.as_view(), name="book_create"),
+    path("update/<int:pk>/", BookUpdateView.as_view(), name="book_update"),
+    path("delete/<int:pk>/", BookDeleteView.as_view(), name="book_delete"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("login/", auth_views.LoginView.as_view(), name="login"),
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("register/", views.register, name="register"),
+    path("webhook/", WebhookReceivedView.as_view(), name="webhook"),
 ]
 if settings.DEBUG:
     import debug_toolbar
 
     urlpatterns += [
         path("__debug__/", include(debug_toolbar.urls)),
-]
+    ]

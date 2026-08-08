@@ -1,35 +1,27 @@
-
-import os
-import json
 import stripe
-
 from django.shortcuts import redirect, render
 from django.conf import settings
 from django.views import View
 from django.http import JsonResponse, HttpResponse
 from django.core.mail import send_mail
 
-
-
-
-
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+
 YOUR_DOMAIN = "http://127.0.0.1:8000"
-
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
 
 
 class CheckoutPage(View):
     """Render the standalone Stripe checkout page."""
+
     def get(self, request):
         return render(request, "checkout.html")
 
 
-
 class CheckoutSession(View):
     """Create a subscription checkout session from a Stripe price key."""
+
     def post(self, request):
         try:
             lookup_key = request.POST.get("lookup_key")
@@ -63,9 +55,9 @@ class CheckoutSession(View):
             return HttpResponse(str(e), status=500)
 
 
-
 class CustomerPortalView(View):
     """Create a Stripe customer-portal session."""
+
     def post(self, request):
         try:
             session_id = request.POST.get("session_id")
@@ -86,8 +78,7 @@ class CustomerPortalView(View):
             return HttpResponse(str(e), status=500)
 
 
-
-@method_decorator(csrf_exempt, name='dispatch')
+@method_decorator(csrf_exempt, name="dispatch")
 class WebhookReceivedView(View):
     """Validate Stripe events and send a payment confirmation email."""
 
@@ -112,10 +103,9 @@ class WebhookReceivedView(View):
         if event_type == "checkout.session.completed":
             if data_object.get("payment_status") == "paid":
 
-                email = (
-                    data_object.get("customer_details", {}).get("email")
-                    or data_object.get("customer_email")
-                )
+                email = data_object.get("customer_details", {}).get(
+                    "email"
+                ) or data_object.get("customer_email")
 
                 print("Payment succeeded!")
                 print("Customer email:", email)
@@ -142,11 +132,12 @@ class WebhookReceivedView(View):
 
         return JsonResponse({"status": "success"})
 
+
 def payment_success(request):
     """Render the standalone successful-payment page."""
     return render(request, "payment/success.html")
 
+
 def payment_cancel(request):
     """Render the standalone cancelled-payment page."""
     return render(request, "payment/cancel.html")
-

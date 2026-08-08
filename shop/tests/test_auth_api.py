@@ -7,18 +7,11 @@ from shop.models import User
 class JWTAPITest(APITestCase):
 
     def setUp(self):
-        User.objects.create_user(
-            username="user",
-            password="password123"
-        )
+        User.objects.create_user(username="user", password="password123")
 
     def test_obtain_token(self):
         response = self.client.post(
-            "/api/token/",
-            {
-                "username": "user",
-                "password": "password123"
-            }
+            "/api/token/", {"username": "user", "password": "password123"}
         )
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -27,37 +20,21 @@ class JWTAPITest(APITestCase):
 
     def test_refresh_token(self):
         token = self.client.post(
-            "/api/token/",
-            {
-                "username": "user",
-                "password": "password123"
-            }
+            "/api/token/", {"username": "user", "password": "password123"}
         ).data
 
         response = self.client.post(
-            "/api/token/refresh/",
-            {
-                "refresh": token["refresh"]
-            }
+            "/api/token/refresh/", {"refresh": token["refresh"]}
         )
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_verify_token(self):
         token = self.client.post(
-            "/api/token/",
-            {
-                "username": "user",
-                "password": "password123"
-            }
+            "/api/token/", {"username": "user", "password": "password123"}
         ).data
 
-        response = self.client.post(
-            "/api/token/verify/",
-            {
-                "token": token["access"]
-            }
-        )
+        response = self.client.post("/api/token/verify/", {"token": token["access"]})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

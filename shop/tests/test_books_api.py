@@ -1,4 +1,4 @@
-from django.urls import reverse
+
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -9,16 +9,12 @@ class BookAPITest(APITestCase):
 
     def setUp(self):
         self.user = User.objects.create_user(
-            username="testuser",
-            password="testpass123"
+            username="testuser", password="testpass123"
         )
 
         self.client.force_authenticate(user=self.user)
 
-        self.category = Category.objects.create(
-            name="Programming",
-            slug="programming"
-        )
+        self.category = Category.objects.create(name="Programming", slug="programming")
 
         self.book = Book.objects.create(
             title="Python",
@@ -61,8 +57,6 @@ class BookAPITest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_book(self):
-        response = self.client.delete(
-            f"/api/books/{self.book.id}/"
-        )
+        response = self.client.delete(f"/api/books/{self.book.id}/")
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

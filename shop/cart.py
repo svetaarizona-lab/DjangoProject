@@ -12,7 +12,6 @@ class Cart:
         self.cart[book_id]["quantity"] += quantity
         self.save()
 
-
     def remove(self, book):
         book_id = str(book.id)
 

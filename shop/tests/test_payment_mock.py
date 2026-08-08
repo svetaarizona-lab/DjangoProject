@@ -36,7 +36,6 @@ def test_payment_success_sends_email(
     }
     session_data.save()
 
-
     response = client.get(
         reverse("payment_success"),
         {

@@ -6,7 +6,6 @@ from django.urls import reverse
 from shop.models import Book, Category
 
 
-
 @pytest.mark.django_db
 def test_book_list_view(client):
     category = Category.objects.create(

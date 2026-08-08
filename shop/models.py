@@ -1,7 +1,7 @@
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
+
 
 class User(AbstractUser):
     phone = models.CharField(max_length=20, blank=True, null=True)
@@ -11,8 +11,8 @@ class User(AbstractUser):
 
 
 class Category(models.Model):
-   # name = models.CharField(max_length=100, verbose_name="Category Name")
-    #slug = models.SlugField(max_length=100, unique=True, verbose_name="Category Slug")
+    # name = models.CharField(max_length=100, verbose_name="Category Name")
+    # slug = models.SlugField(max_length=100, unique=True, verbose_name="Category Slug")
     name = models.CharField(_("Name"), max_length=255)
     slug = models.SlugField(_("Slug"), unique=True)
 
@@ -22,13 +22,14 @@ class Category(models.Model):
     def __repr__(self):
         return self.name
 
+
 class Book(models.Model):
-    #category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    #title = models.CharField(max_length=100, verbose_name="Book Title")
-    #author = models.CharField(max_length=100, verbose_name="Book Author")
-    #price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-    #description = models.TextField()
-    #stock = models.PositiveIntegerField(default=0)
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # title = models.CharField(max_length=100, verbose_name="Book Title")
+    # author = models.CharField(max_length=100, verbose_name="Book Author")
+    # price = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    # description = models.TextField()
+    # stock = models.PositiveIntegerField(default=0)
     title = models.CharField(_("Title"), max_length=255)
     author = models.CharField(_("Author"), max_length=255)
     description = models.TextField(_("Description"))
@@ -45,10 +46,10 @@ class Book(models.Model):
     )
 
     def __str__(self):
-        return f'{self.title} ({self.author})'
+        return f"{self.title} ({self.author})"
 
     def __repr__(self):
-        return f'{self.title} ({self.author})'
+        return f"{self.title} ({self.author})"
 
     class Meta:
         permissions = [
@@ -56,6 +57,7 @@ class Book(models.Model):
             ("can_manage_books", "Can manage books"),
             ("can_view_reports", "Can view reports"),
         ]
+
 
 class Order(models.Model):
 
@@ -106,7 +108,6 @@ class OrderItem(models.Model):
         verbose_name=_("Book"),
         related_name="order_items",
         on_delete=models.CASCADE,
-
     )
 
     price = models.DecimalField(
@@ -125,4 +126,3 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
-    

@@ -1,6 +1,8 @@
-from .base import *
+import os
+from .base import *  # noqa: F403,F401
 
 DEBUG = False
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 SECURE_BROWSER_XSS_FILTER = True

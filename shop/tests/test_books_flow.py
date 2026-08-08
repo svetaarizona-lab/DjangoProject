@@ -75,9 +75,7 @@ def test_delete_book_flow(client, category):
         author="Author",
     )
 
-    response = client.post(
-        reverse("book_delete", args=[book.id])
-    )
+    response = client.post(reverse("book_delete", args=[book.id]))
 
     assert response.status_code == 302
     assert not Book.objects.filter(id=book.id).exists()

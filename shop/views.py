@@ -1,58 +1,45 @@
-
+import logging
 import stripe
 from django.conf import settings
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import permission_required
+from django.core.cache import cache
+from django.core.mail import send_mail
+from django.db import transaction
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views import View
-stripe.api_key = settings.STRIPE_SECRET_KEY
-import logging
+from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import status, viewsets
+from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from .cart import Cart
+from .forms import CustomUserCreationForm
+from .models import Book, Category, Order, OrderItem
+from .permissions import IsOwnerOrReadOnly
+from .serializers import (
+    BookSerializer,
+    CartItemSerializer,
+    CategorySerializer,
+    OrderSerializer,
+)
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 logger = logging.getLogger(__name__)
 
-from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import permission_required
-from django.contrib.auth import authenticate, login,logout
-from .forms import CustomUserCreationForm
-from .models import Book, Order, OrderItem
-from .cart import Cart
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
-from django.http import HttpResponse
-from django.core.mail import send_mail
-from django.conf import settings
-from django.db import transaction
-from asgiref.sync import sync_to_async
-from django.shortcuts import render
-from django.http import Http404
 
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .serializers import (
-    CategorySerializer,
-    BookSerializer,
-    OrderSerializer,
-    CartItemSerializer,
-)
-from .models import Category
-from .permissions import IsOwnerOrReadOnly
-
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
-from django.core.cache import cache
-from django.http import JsonResponse
 def index(request):
+    return render(request, "index.html")
 
-    return render(request,'index.html')
 
 @method_decorator(cache_page(60 * 5), name="dispatch")
 class BookListView(ListView):
@@ -72,6 +59,7 @@ class BookListView(ListView):
 
         return queryset
 
+
 class BookDetailView(DetailView):
     model = Book
     template_name = "book_detail.html"
@@ -88,38 +76,41 @@ class BookDetailView(DetailView):
 
         return book
 
+
 class BookCreateView(CreateView):
 
     model = Book
-    template_name = 'book_form.html'
-    fields = ['category', 'title', 'author', 'price', 'description', 'stock']
-    success_url = reverse_lazy('book_list')
+    template_name = "book_form.html"
+    fields = ["category", "title", "author", "price", "description", "stock"]
+    success_url = reverse_lazy("book_list")
+
 
 class BookUpdateView(UpdateView):
 
     model = Book
-    template_name = 'book_form.html'
-    fields = ['category', 'title', 'author', 'price', 'description', 'stock']
-    success_url = reverse_lazy('book_list')
+    template_name = "book_form.html"
+    fields = ["category", "title", "author", "price", "description", "stock"]
+    success_url = reverse_lazy("book_list")
+
 
 class BookDeleteView(DeleteView):
 
     model = Book
-    template_name = 'book_confirm_delete.html'
-    success_url = reverse_lazy('book_list')
+    template_name = "book_confirm_delete.html"
+    success_url = reverse_lazy("book_list")
 
 
 def register(request):
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect("login")
     else:
         form = CustomUserCreationForm()
 
-    return render(request, 'register.html', {'form': form})
+    return render(request, "register.html", {"form": form})
 
 
 def login_view(request):
@@ -148,35 +139,40 @@ def manage_books(request):
 
     return render(request, "manage_books.html")
 
+
 def cart_add(request, book_id):
 
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.add(book)
-    return redirect('cart_detail')
+    return redirect("cart_detail")
+
 
 def cart_remove(request, book_id):
 
     cart = Cart(request)
     book = get_object_or_404(Book, id=book_id)
     cart.remove(book)
-    return redirect('cart_detail')
+    return redirect("cart_detail")
 
 
 def cart_clear(request):
 
     cart = Cart(request)
     cart.clear()
-    return redirect('cart_detail')
+    return redirect("cart_detail")
 
 
 def cart_detail(request):
 
     cart = Cart(request)
-    return render(request, "cart_detail.html", {
-        "cart": list(cart),
-        "total": cart.get_total_price()
-    })
+    return render(
+        request,
+        "cart_detail.html",
+        {"cart": list(cart), "total": cart.get_total_price()},
+    )
+
+
 class CreateCheckoutSessionView(View):
 
     def post(self, request):
@@ -185,16 +181,18 @@ class CreateCheckoutSessionView(View):
         line_items = []
 
         for item in cart:
-            line_items.append({
-                "price_data": {
-                    "currency": "usd",
-                    "product_data": {
-                        "name": item["book"].title,
+            line_items.append(
+                {
+                    "price_data": {
+                        "currency": "usd",
+                        "product_data": {
+                            "name": item["book"].title,
+                        },
+                        "unit_amount": int(item["book"].price * 100),
                     },
-                    "unit_amount": int(item["book"].price * 100),
-                },
-                "quantity": item["quantity"],
-            })
+                    "quantity": item["quantity"],
+                }
+            )
         if not line_items:
             return redirect("cart_detail")
 
@@ -202,21 +200,20 @@ class CreateCheckoutSessionView(View):
             mode="payment",
             line_items=line_items,
             customer_email=request.POST.get("email"),
-            success_url=settings.DOMAIN + "/checkout/success/?session_id={CHECKOUT_SESSION_ID}",
+            success_url=settings.DOMAIN
+            + "/checkout/success/?session_id={CHECKOUT_SESSION_ID}",
             cancel_url=settings.DOMAIN + "/checkout/cancel/",
-
         )
 
-        return redirect(session.url, code= 303)
+        return redirect(session.url, code=303)
+
 
 def payment_success(request):
 
     session_id = request.GET.get("session_id")
 
     if not session_id:
-        return render(request, "payment/success.html", {
-            "error": "Missing session_id"
-        })
+        return render(request, "payment/success.html", {"error": "Missing session_id"})
 
     session = stripe.checkout.Session.retrieve(session_id)
 
@@ -253,23 +250,26 @@ def payment_success(request):
 
         if created:
             send_mail(
-            subject=f"Order #{order.id}",
-            message=(
-                f"Thank you for your order!\n\n"
-                f"Order number: {order.id}\n"
-                f"Total: ${order.get_total_cost()}\n\n"
-                f"We appreciate your purchase!"
-            ),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[order.email],
-            fail_silently=False,
+                subject=f"Order #{order.id}",
+                message=(
+                    f"Thank you for your order!\n\n"
+                    f"Order number: {order.id}\n"
+                    f"Total: ${order.get_total_cost()}\n\n"
+                    f"We appreciate your purchase!"
+                ),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[order.email],
+                fail_silently=False,
             )
 
     return render(request, "payment/success.html")
 
+
 def payment_cancel(request):
 
     return render(request, "payment/cancel.html")
+
+
 @csrf_exempt
 def stripe_webhook(request):
 
@@ -291,11 +291,9 @@ def stripe_webhook(request):
 
         session = event["data"]["object"]
 
-        if not Order.objects.filter(
-            stripe_session_id=session["id"]
-        ).exists():
+        if not Order.objects.filter(stripe_session_id=session["id"]).exists():
 
-            order = Order.objects.create(
+            Order.objects.create(
                 first_name="Guest",
                 last_name="",
                 email=session["customer_details"]["email"],
@@ -304,6 +302,8 @@ def stripe_webhook(request):
             )
 
     return HttpResponse(status=200)
+
+
 async def async_book(request, pk):
 
     try:
@@ -341,6 +341,7 @@ async def async_create_order(request):
 
     return HttpResponse(f"Created order #{order.id}")
 
+
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -349,6 +350,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ["name"]
     ordering_fields = ["name"]
+
 
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
@@ -390,6 +392,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+
 class CartAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -398,10 +401,7 @@ class CartAPIView(APIView):
 
         serializer = CartItemSerializer(list(cart), many=True)
 
-        return Response({
-            "items": serializer.data,
-            "total": cart.get_total_price()
-        })
+        return Response({"items": serializer.data, "total": cart.get_total_price()})
 
 
 class CartAddAPIView(APIView):
@@ -445,5 +445,7 @@ class CartClearAPIView(APIView):
             {"message": "Cart cleared"},
             status=status.HTTP_200_OK,
         )
+
+
 def health_check(request):
     return JsonResponse({"status": "ok"})

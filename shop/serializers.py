@@ -42,6 +42,8 @@ class OrderSerializer(serializers.ModelSerializer):
             "paid",
             "items",
         ]
+
+
 class CartItemSerializer(serializers.Serializer):
     book = BookSerializer()
     quantity = serializers.IntegerField()

@@ -6,26 +6,32 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0002_alter_book_options_alter_book_price_order_orderitem'),
+        ("shop", "0002_alter_book_options_alter_book_price_order_orderitem"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='orderitem',
-            name='order',
+            model_name="orderitem",
+            name="order",
         ),
         migrations.RemoveField(
-            model_name='orderitem',
-            name='book',
+            model_name="orderitem",
+            name="book",
         ),
         migrations.AlterModelOptions(
-            name='book',
-            options={'permissions': [('can_add_book_stock', 'Can add book stock'), ('can_manage_books', 'Can manage books'), ('can_view_reports', 'Can view reports')]},
+            name="book",
+            options={
+                "permissions": [
+                    ("can_add_book_stock", "Can add book stock"),
+                    ("can_manage_books", "Can manage books"),
+                    ("can_view_reports", "Can view reports"),
+                ]
+            },
         ),
         migrations.DeleteModel(
-            name='Order',
+            name="Order",
         ),
         migrations.DeleteModel(
-            name='OrderItem',
+            name="OrderItem",
         ),
     ]

@@ -7,17 +7,11 @@ from shop.models import User, Category, Book
 class CartAPITest(APITestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(
-            username="user",
-            password="password123"
-        )
+        self.user = User.objects.create_user(username="user", password="password123")
 
         self.client.force_authenticate(self.user)
 
-        self.category = Category.objects.create(
-            name="Programming",
-            slug="programming"
-        )
+        self.category = Category.objects.create(name="Programming", slug="programming")
 
         self.book = Book.objects.create(
             title="Python",
@@ -33,18 +27,14 @@ class CartAPITest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_add_to_cart(self):
-        response = self.client.post(
-            f"/api/cart/add/{self.book.id}/"
-        )
+        response = self.client.post(f"/api/cart/add/{self.book.id}/")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_remove_from_cart(self):
         self.client.post(f"/api/cart/add/{self.book.id}/")
 
-        response = self.client.delete(
-            f"/api/cart/remove/{self.book.id}/"
-        )
+        response = self.client.delete(f"/api/cart/remove/{self.book.id}/")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

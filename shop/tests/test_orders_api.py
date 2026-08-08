@@ -7,10 +7,7 @@ from shop.models import User, Order
 class OrderAPITest(APITestCase):
 
     def setUp(self):
-        self.user = User.objects.create_user(
-            username="user",
-            password="password123"
-        )
+        self.user = User.objects.create_user(username="user", password="password123")
 
         self.client.force_authenticate(self.user)
 
@@ -36,34 +33,24 @@ class OrderAPITest(APITestCase):
                 "first_name": "Jane",
                 "last_name": "Smith",
                 "email": "jane@test.com",
-                "paid": False
-            }
+                "paid": False,
+            },
         )
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_update_order(self):
-        response = self.client.patch(
-            f"/api/orders/{self.order.id}/",
-            {
-                "paid": True
-            }
-        )
+        response = self.client.patch(f"/api/orders/{self.order.id}/", {"paid": True})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_order(self):
-        response = self.client.delete(
-            f"/api/orders/{self.order.id}/"
-        )
+        response = self.client.delete(f"/api/orders/{self.order.id}/")
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_only_own_orders(self):
-        second = User.objects.create_user(
-            username="other",
-            password="123456"
-        )
+        second = User.objects.create_user(username="other", password="123456")
 
         Order.objects.create(
             user=second,
