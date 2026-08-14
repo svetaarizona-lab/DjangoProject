@@ -8,3 +8,6 @@ db.sqlite3
 celerybeat-schedule*
 staticfiles/
 shopbook/staticfiles/
+coverage.xml
+.coverage
+swagger-check.txt

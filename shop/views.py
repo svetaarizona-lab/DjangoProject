@@ -1,5 +1,8 @@
 import logging
 import stripe
+from drf_spectacular.utils import extend_schema, inline_serializer
+from rest_framework import serializers
+from drf_spectacular.utils import extend_schema, inline_serializer
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import permission_required
@@ -16,7 +19,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import status, viewsets
+from rest_framework import serializers, status, viewsets
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
@@ -380,6 +383,7 @@ class BookViewSet(viewsets.ModelViewSet):
 
 
 class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
 
@@ -393,6 +397,18 @@ class OrderViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
+@extend_schema(
+    responses=inline_serializer(
+        name="CartResponse",
+        fields={
+            "items": CartItemSerializer(many=True),
+            "total": serializers.DecimalField(
+                max_digits=10,
+                decimal_places=2,
+            ),
+        },
+    )
+)
 class CartAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -401,9 +417,23 @@ class CartAPIView(APIView):
 
         serializer = CartItemSerializer(list(cart), many=True)
 
-        return Response({"items": serializer.data, "total": cart.get_total_price()})
+        return Response(
+            {
+                "items": serializer.data,
+                "total": cart.get_total_price(),
+            }
+        )
 
 
+@extend_schema(
+    request=None,
+    responses=inline_serializer(
+        name="CartAddResponse",
+        fields={
+            "message": serializers.CharField(),
+        },
+    ),
+)
 class CartAddAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -419,6 +449,15 @@ class CartAddAPIView(APIView):
         )
 
 
+@extend_schema(
+    request=None,
+    responses=inline_serializer(
+        name="CartRemoveResponse",
+        fields={
+            "message": serializers.CharField(),
+        },
+    ),
+)
 class CartRemoveAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -434,6 +473,15 @@ class CartRemoveAPIView(APIView):
         )
 
 
+@extend_schema(
+    request=None,
+    responses=inline_serializer(
+        name="CartClearResponse",
+        fields={
+            "message": serializers.CharField(),
+        },
+    ),
+)
 class CartClearAPIView(APIView):
     permission_classes = [IsAuthenticated]
 

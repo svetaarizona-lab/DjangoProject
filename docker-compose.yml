@@ -12,6 +12,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      default:
+        aliases:
+          - projecta-web
 
     command: ["sh", "docker-entrypoint.sh"]
 
